@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Penn National Golf Tournament — Player Profiles and Career Stats">
+  <title>Player Profiles — Penn National Golf Tournament</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+  <script src="shared.js"></script>
+
+  <main>
+
+    <div class="page-header">
+      <div class="container">
+        <span class="section-label">Career Stats</span>
+        <h1>Player Profiles</h1>
+        <p class="page-subtitle">Every competitor to tee it up at Penn National</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="player-grid" id="player-grid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ══════════════════════════════════════════════════════════════════════
+    // PLAYER DATA — compiled from all record books
+    // ══════════════════════════════════════════════════════════════════════
+    var players = [
+      { name: 'Tommy Farrell', years: [2019,2020,2021,2022,2023,2024,2025], pts: 64.5, ppyr: 9.21, sundayAvg: 72.2, ctps: 2, lds: 0, eagles: 0,
+        bestBB: '58 w/ Josh Moss — Iron Forge 2022', bestScramble: null, notes: 'All-Time Points Leader' },
+      { name: 'Bret Custer', years: [2019,2020,2021,2022,2023,2024,2025], pts: 63, ppyr: 9.0, sundayAvg: 78.0, ctps: 5, lds: 0, eagles: 2,
+        bestBB: '60 w/ Mark Graner — Founders 2021', bestScramble: null, notes: '2 career eagles' },
+      { name: 'Seth Kaas', years: [2019,2020,2021,2022,2023,2024,2025], pts: 52.5, ppyr: 7.5, sundayAvg: 76.2, ctps: 0, lds: 2, eagles: 0,
+        bestBB: '55 w/ Tom Farrell Sr — Founders 2020', bestScramble: null, notes: 'Holds lowest net BB round (55)' },
+      { name: 'Gavin Vetrano', years: [2019,2020,2021,2022,2023,2024,2025], pts: 47.5, ppyr: 6.79, sundayAvg: 81.8, ctps: 7, lds: 0, eagles: 1,
+        bestBB: '59 w/ Niko Mikolike — Iron Forge 2020', bestScramble: null, notes: 'Most career CTPs (7)' },
+      { name: 'Eric Upchurch', years: [2019,2020,2021,2022,2023,2024,2025], pts: 46.5, ppyr: 6.64, sundayAvg: 77.5, ctps: 4, lds: 2, eagles: 0,
+        bestBB: null, bestScramble: null, notes: null },
+      { name: 'Petey Lytle', years: [2019,2020,2021,2022,2023,2024,2025], pts: 43, ppyr: 6.14, sundayAvg: 79.8, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: null },
+      { name: 'Mike Furman', years: [2019,2020,2021,2022,2023,2024,2025], pts: 9.5, ppyr: 1.36, sundayAvg: 76.2, ctps: 5, lds: 0, eagles: 1,
+        bestBB: '59 w/ Anthony Mollitor — IF 2022', bestScramble: '64 w/ Petey Lytle — IF 2020', notes: '3 of top 16 gross rounds' },
+      { name: 'Mark Graner', years: [2021,2022,2023,2024,2025], pts: 44.58, ppyr: 8.92, sundayAvg: 77.0, ctps: 3, lds: 0, eagles: 0,
+        bestBB: '60 w/ Bret Custer — Founders 2021', bestScramble: null, notes: '#3 all-time pts/yr' },
+      { name: 'Josh Moss', years: [2022,2023,2024,2025], pts: 31, ppyr: 7.75, sundayAvg: 74.5, ctps: 2, lds: 9, eagles: 0,
+        bestBB: '58 w/ Tommy Farrell — IF 2022', bestScramble: '62 w/ Drew Hutcheon — Founders 2024', notes: 'Most career LDs (9). Lowest gross ind (67)' },
+      { name: 'Brandon Holland', years: [2022,2023,2025], pts: 22.83, ppyr: 7.61, sundayAvg: 72.3, ctps: 2, lds: 0, eagles: 0,
+        bestBB: '60 w/ Seth Kaas — IF 2025', bestScramble: '63 w/ Gavin Vetrano — IF 2025', notes: null },
+      { name: 'Trace Ferre', years: [2023,2024,2025], pts: 22.33, ppyr: 7.44, sundayAvg: 78.0, ctps: 2, lds: 0, eagles: 0,
+        bestBB: '61 w/ Brandon Orbe — IF 2024', bestScramble: null, notes: null },
+      { name: 'Kevin Flanagan', years: [2019,2022,2023], pts: 21.58, ppyr: 7.19, sundayAvg: 76.0, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: null },
+      { name: 'Mike Shipway', years: [2020,2021,2022], pts: 21.5, ppyr: 7.17, sundayAvg: null, ctps: 2, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: '65 w/ Mike Furman — IF 2022', notes: null },
+      { name: 'Anthony Farrell', years: [2019,2020,2021,2023], pts: 27, ppyr: 6.75, sundayAvg: 74.0, ctps: 0, lds: 3, eagles: 0,
+        bestBB: '62 w/ Mike Furman — Founders 2021', bestScramble: '68 w/ Paul Duplessis — Founders 2021', notes: null },
+      { name: 'Steve Smith', years: [2022,2023,2024,2025], pts: 19.08, ppyr: 4.77, sundayAvg: 79.5, ctps: 0, lds: 0, eagles: 0,
+        bestBB: '62 w/ Mark Graner — Founders 2023', bestScramble: null, notes: null },
+      { name: 'Jon Thomas', years: [2022,2023,2024,2025], pts: 17.5, ppyr: 4.38, sundayAvg: 75.0, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: '65 w/ Josh Moss — IF 2022', notes: null },
+      { name: 'Derek Chiarella', years: [2022,2023,2024,2025], pts: 14.5, ppyr: 3.62, sundayAvg: 76.0, ctps: 3, lds: 0, eagles: 0,
+        bestBB: '62 w/ Andrew Argandona — IF 2025', bestScramble: '63 w/ Josh Moss — IF 2024', notes: null },
+      { name: 'Tim Boykin', years: [2019,2021,2022,2023,2025], pts: 10, ppyr: 2.0, sundayAvg: 88.0, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: null },
+      { name: 'Brandon Orbe', years: [2024,2025], pts: 10.5, ppyr: 5.25, sundayAvg: 73.5, ctps: 0, lds: 0, eagles: 0,
+        bestBB: '61 w/ Trace Ferre — IF 2024', bestScramble: null, notes: null },
+      { name: 'Chris Fong', years: [2022,2023], pts: 7.5, ppyr: 3.75, sundayAvg: 71.5, ctps: 4, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: '4 CTPs in just 2 years' },
+      { name: 'Chase Bertke', years: [2021,2022], pts: 7, ppyr: 3.5, sundayAvg: 73.0, ctps: 2, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: '68 w/ Eric Upchurch — Founders 2024', notes: null },
+      { name: 'Andrew Argandona', years: [2025], pts: 8, ppyr: 8.0, sundayAvg: 82.0, ctps: 0, lds: 0, eagles: 0,
+        bestBB: '62 w/ Derek Chiarella — IF 2025', bestScramble: null, notes: '8 pts in 1st year (4th all-time ppyr)' },
+      { name: 'Tom Farrell Sr', years: [2020,2022,2024,2025], pts: null, sundayAvg: 73.7, ctps: 0, lds: 0, eagles: 0,
+        bestBB: '55 w/ Seth Kaas — Founders 2020', bestScramble: null, notes: 'Part of lowest BB round ever' },
+      { name: 'Eric DiFulvio', years: [2025], pts: 7, ppyr: 7.0, sundayAvg: 79.0, ctps: 0, lds: 0, eagles: 0,
+        bestBB: '61 w/ Mark Graner — Founders 2025', bestScramble: null, notes: null },
+      { name: 'Jarrett Young', years: [2025], pts: 5, ppyr: 5.0, sundayAvg: 77.0, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: null },
+      { name: 'Drew Hutcheon', years: [2024], pts: null, sundayAvg: 75.0, ctps: 0, lds: 0, eagles: 1,
+        bestBB: null, bestScramble: '62 w/ Josh Moss — Founders 2024', notes: 'Eagle on Forge #15 (2024)' },
+      { name: 'Dan Crowley', years: [2024], pts: null, sundayAvg: 68.0, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: 'Best Sunday net avg (68.0)' },
+      { name: 'Kohl Meyer', years: [2024], pts: null, sundayAvg: 72.0, ctps: 0, lds: 0, eagles: 1,
+        bestBB: null, bestScramble: null, notes: 'Eagle on Forge #15 (2024)' },
+      { name: 'Niko Mikolike', years: [2020], pts: null, sundayAvg: null, ctps: 0, lds: 0, eagles: 0,
+        bestBB: '59 w/ Gavin Vetrano — IF 2020', bestScramble: null, notes: 'One-and-Doner: 8 pts' },
+      { name: 'Anthony Mollitor', years: [2022], pts: null, sundayAvg: null, ctps: 0, lds: 0, eagles: 0,
+        bestBB: '59 w/ Mike Furman — IF 2022', bestScramble: null, notes: 'One-and-Doner: 9 pts (record)' },
+      { name: 'Matt Rykiel', years: [2023], pts: null, sundayAvg: null, ctps: 0, lds: 0, eagles: 1,
+        bestBB: null, bestScramble: null, notes: 'Eagle on Founders #2 (2023)' },
+      { name: 'Brad Hilgenfeld', years: [2023], pts: null, sundayAvg: null, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: 'One-and-Doner: 6.33 pts' },
+      { name: 'Blaine Sitzmann', years: [2021], pts: null, sundayAvg: null, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: 'One-and-Doner' },
+      { name: 'Paul Duplessis', years: [2021], pts: null, sundayAvg: null, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: null },
+      { name: 'Ramesh Sundaresan', years: [2021], pts: null, sundayAvg: null, ctps: 0, lds: 2, eagles: 0,
+        bestBB: null, bestScramble: null, notes: '2 career long drives in 1 year' },
+      { name: 'Lucas Huddleston', years: [2020], pts: null, sundayAvg: null, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: 'One-and-Doner' },
+      { name: 'Dan Allen', years: [2020], pts: null, sundayAvg: null, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: null },
+      { name: 'Michael Ballard', years: [2019], pts: null, sundayAvg: null, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: 'One-and-Doner (inaugural year)' },
+      { name: 'Obie Boykin', years: [2019], pts: null, sundayAvg: null, ctps: 0, lds: 0, eagles: 0,
+        bestBB: null, bestScramble: null, notes: 'One-and-Doner (inaugural year)' },
+    ];
+
+    // Sort: multi-year players first (by pts desc), then one-year players
+    players.sort(function (a, b) {
+      var aMulti = a.years.length > 1 ? 1 : 0;
+      var bMulti = b.years.length > 1 ? 1 : 0;
+      if (aMulti !== bMulti) return bMulti - aMulti;
+      var aPts = a.pts || 0;
+      var bPts = b.pts || 0;
+      return bPts - aPts;
+    });
+
+    function esc(s) { return PennNat.escapeHTML(s); }
+
+    var grid = document.getElementById('player-grid');
+
+    players.forEach(function (p) {
+      var card = document.createElement('div');
+      card.className = 'player-card';
+
+      var yearsStr = p.years.join(', ');
+      var ptsDisplay = p.pts != null ? p.pts : '—';
+      var ppyrDisplay = p.ppyr != null ? p.ppyr.toFixed(2) : '—';
+      var sundayDisplay = p.sundayAvg != null ? p.sundayAvg.toFixed(1) : '—';
+
+      var detailRows = '';
+      if (p.bestBB) detailRows += '<div class="player-stat" style="grid-column:1/-1"><span class="player-stat-label">Best Better Ball</span><span style="font-size:0.85rem;color:var(--off-white)">' + esc(p.bestBB) + '</span></div>';
+      if (p.bestScramble) detailRows += '<div class="player-stat" style="grid-column:1/-1"><span class="player-stat-label">Best Scramble</span><span style="font-size:0.85rem;color:var(--off-white)">' + esc(p.bestScramble) + '</span></div>';
+      if (p.eagles > 0) detailRows += '<div class="player-stat"><span class="player-stat-label">Eagles</span><span class="player-stat-value">' + p.eagles + '</span></div>';
+      if (p.lds > 0) detailRows += '<div class="player-stat"><span class="player-stat-label">Long Drives</span><span class="player-stat-value">' + p.lds + '</span></div>';
+      if (p.notes) detailRows += '<div class="player-stat" style="grid-column:1/-1"><span class="player-stat-label">Notable</span><span style="font-size:0.85rem;color:var(--gold)">' + esc(p.notes) + '</span></div>';
+
+      var hasDetail = detailRows.length > 0;
+
+      card.innerHTML =
+        '<div class="player-card-header">' +
+          '<span class="player-card-name">' + esc(p.name) + '</span>' +
+          '<span class="player-card-years">' + p.years.length + ' yr' + (p.years.length > 1 ? 's' : '') + '</span>' +
+        '</div>' +
+        '<div class="player-card-stats">' +
+          '<div class="player-stat"><span class="player-stat-label">Total Points</span><span class="player-stat-value">' + ptsDisplay + '</span></div>' +
+          '<div class="player-stat"><span class="player-stat-label">Pts/Year</span><span class="player-stat-value">' + ppyrDisplay + '</span></div>' +
+          '<div class="player-stat"><span class="player-stat-label">Sunday Avg</span><span class="player-stat-value">' + sundayDisplay + '</span></div>' +
+          '<div class="player-stat"><span class="player-stat-label">CTPs</span><span class="player-stat-value">' + p.ctps + '</span></div>' +
+        '</div>' +
+        (hasDetail
+          ? '<div class="player-card-detail"><div class="player-card-stats">' + detailRows + '</div></div>' +
+            '<button class="player-card-toggle" onclick="this.parentElement.classList.toggle(\'expanded\');this.textContent=this.parentElement.classList.contains(\'expanded\')?\'Hide Details\':\'Show Details\'">Show Details</button>'
+          : '') +
+        '<div style="padding:0.5rem 1.25rem 0.75rem;font-size:0.75rem;color:var(--gray)">' + yearsStr + '</div>';
+
+      grid.appendChild(card);
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

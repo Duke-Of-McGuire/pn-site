@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="2023 Penn National Golf Tournament Results">
+  <title>2023 Results — Penn National Golf Tournament</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+  <script src="shared.js"></script>
+
+  <main>
+
+    <div class="page-header">
+      <div class="container">
+        <span class="section-label">Tournament Results</span>
+        <h1>2023 Penn National</h1>
+        <p class="page-subtitle">20 Players &mdash; Iron Forge &amp; Founders &mdash; Fayetteville, PA</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Round Tabs -->
+        <div class="round-tabs">
+          <button class="round-tab-btn active" data-round="round-final">Final Leaderboard</button>
+          <button class="round-tab-btn" data-round="round-1">Fri R1: Better Ball</button>
+          <button class="round-tab-btn" data-round="round-2">Fri R2: Scramble</button>
+          <button class="round-tab-btn" data-round="round-3">Sat R1: Better Ball</button>
+          <button class="round-tab-btn" data-round="round-4">Sat R2: Scramble</button>
+          <button class="round-tab-btn" data-round="round-sunday">Sunday Individual</button>
+          <button class="round-tab-btn" data-round="round-ctp">Closest-to-Pin</button>
+        </div>
+
+        <!-- ═══ Final Leaderboard ═══ -->
+        <div class="round-panel active" id="round-final">
+          <div style="text-align:center;margin-bottom:2rem">
+            <div style="font-size:2.5rem;margin-bottom:0.5rem">&#127942;</div>
+            <h2 class="section-title">2023 Champion: Josh Moss</h2>
+            <p style="color:var(--gold);font-family:var(--font-display);font-size:1.2rem">Net Score: 68</p>
+            <div class="gold-rule" style="margin:1rem auto"></div>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width:50px">Rank</th>
+                  <th>Player</th>
+                  <th class="col-num">Gross</th>
+                  <th class="col-num">HCP</th>
+                  <th class="col-num">Pops</th>
+                  <th class="col-num">Net</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="rank-badge rank-1">1</span></td><td>Josh Moss</td><td class="col-num">72</td><td class="col-num">-2</td><td class="col-num">6</td><td class="col-num score-good"><strong>68</strong></td></tr>
+                <tr><td><span class="rank-badge rank-2">2</span></td><td>Eric Upchurch</td><td class="col-num">92</td><td class="col-num">21</td><td class="col-num">&mdash;</td><td class="col-num"><strong>71</strong></td></tr>
+                <tr><td><span class="rank-badge rank-3">3</span></td><td>Anthony Farrell</td><td class="col-num">75</td><td class="col-num">3</td><td class="col-num">&mdash;</td><td class="col-num"><strong>72</strong></td></tr>
+                <tr><td><span class="rank-badge rank-other">4</span></td><td>Chris Fong</td><td class="col-num">79</td><td class="col-num">7</td><td class="col-num">&mdash;</td><td class="col-num">72</td></tr>
+                <tr><td><span class="rank-badge rank-other">5</span></td><td>Seth Kaas</td><td class="col-num">88</td><td class="col-num">14</td><td class="col-num">1</td><td class="col-num">73</td></tr>
+                <tr><td><span class="rank-badge rank-other">6</span></td><td>Matt Rykiel</td><td class="col-num">82</td><td class="col-num">7</td><td class="col-num">1</td><td class="col-num">74</td></tr>
+                <tr><td><span class="rank-badge rank-other">7</span></td><td>Jon Thomas</td><td class="col-num">92</td><td class="col-num">12</td><td class="col-num">5</td><td class="col-num">75</td></tr>
+                <tr><td><span class="rank-badge rank-other">8</span></td><td>Petey Lytle</td><td class="col-num">83</td><td class="col-num">7</td><td class="col-num">&mdash;</td><td class="col-num">76</td></tr>
+                <tr><td><span class="rank-badge rank-other">9</span></td><td>Kevin Flanagan</td><td class="col-num">86</td><td class="col-num">10</td><td class="col-num">&mdash;</td><td class="col-num">76</td></tr>
+                <tr><td><span class="rank-badge rank-other">10</span></td><td>Tommy Farrell</td><td class="col-num">86</td><td class="col-num">9</td><td class="col-num">&mdash;</td><td class="col-num">77</td></tr>
+                <tr><td><span class="rank-badge rank-other">11</span></td><td>Brandon Holland</td><td class="col-num">90</td><td class="col-num">12</td><td class="col-num">&mdash;</td><td class="col-num">78</td></tr>
+                <tr><td><span class="rank-badge rank-other">12</span></td><td>Mark Graner</td><td class="col-num">98</td><td class="col-num">18</td><td class="col-num">2</td><td class="col-num">78</td></tr>
+                <tr><td><span class="rank-badge rank-other">13</span></td><td>Mike Furman</td><td class="col-num">81</td><td class="col-num">2</td><td class="col-num">&mdash;</td><td class="col-num">79</td></tr>
+                <tr><td><span class="rank-badge rank-other">14</span></td><td>Trace Ferre</td><td class="col-num">84</td><td class="col-num">5</td><td class="col-num">&mdash;</td><td class="col-num">79</td></tr>
+                <tr><td><span class="rank-badge rank-other">15</span></td><td>Gavin Vetrano</td><td class="col-num">86</td><td class="col-num">6</td><td class="col-num">1</td><td class="col-num">79</td></tr>
+                <tr><td><span class="rank-badge rank-other">16</span></td><td>Derek Chiarella</td><td class="col-num">90</td><td class="col-num">11</td><td class="col-num">&mdash;</td><td class="col-num">79</td></tr>
+                <tr><td><span class="rank-badge rank-other">17</span></td><td>Steve Smith</td><td class="col-num">100</td><td class="col-num">17</td><td class="col-num">4</td><td class="col-num">79</td></tr>
+                <tr><td><span class="rank-badge rank-other">18</span></td><td>Brad Hilgenfeld</td><td class="col-num">87</td><td class="col-num">5</td><td class="col-num">&mdash;</td><td class="col-num">82</td></tr>
+                <tr><td><span class="rank-badge rank-other">19</span></td><td>Bret Custer</td><td class="col-num">93</td><td class="col-num">6</td><td class="col-num">3</td><td class="col-num">84</td></tr>
+                <tr><td><span class="rank-badge rank-other">20</span></td><td>Tim Boykin</td><td class="col-num" colspan="3">&mdash;</td><td class="col-num">DNP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Round 1: Better Ball ═══ -->
+        <div class="round-panel" id="round-1">
+          <div class="round-info">
+            <span class="round-info-item"><strong>Round 1</strong></span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item"><span class="course-badge course-founders">Founders</span> Dark Green Tees</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Better Ball (Net Stroke Play)</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Friday 9:55 AM</span>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width:50px">Place</th>
+                  <th>Team</th>
+                  <th class="col-num">HCPs</th>
+                  <th class="col-num">Net Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="place-badge place-1st">1st</span></td><td>Steve Smith &amp; Mark Graner</td><td class="col-num">(18, 18)</td><td class="col-num"><strong>62</strong></td></tr>
+                <tr><td><span class="place-badge place-2nd">2nd</span></td><td>Brad Hilgenfeld &amp; Kevin Flanagan</td><td class="col-num">(5, 11)</td><td class="col-num"><strong>63</strong></td></tr>
+                <tr><td><span class="place-badge place-3rd">T3rd</span></td><td>Anthony Farrell &amp; Trace Ferre</td><td class="col-num">(3, 6)</td><td class="col-num"><strong>64</strong></td></tr>
+                <tr><td><span class="place-badge place-3rd">T3rd</span></td><td>Petey Lytle &amp; Josh Moss</td><td class="col-num">(8, -2)</td><td class="col-num"><strong>64</strong></td></tr>
+                <tr><td><span class="place-badge place-3rd">T3rd</span></td><td>Chris Fong &amp; Matt Rykiel</td><td class="col-num">(7, 8)</td><td class="col-num"><strong>64</strong></td></tr>
+                <tr><td><span class="place-other">6th</span></td><td>Tim Boykin &amp; Mike Furman</td><td class="col-num">(20, 2)</td><td class="col-num">65</td></tr>
+                <tr><td><span class="place-other">7th</span></td><td>Seth Kaas &amp; Eric Upchurch</td><td class="col-num">(15, 22)</td><td class="col-num">66</td></tr>
+                <tr><td><span class="place-other">8th</span></td><td>Derek Chiarella &amp; Bret Custer</td><td class="col-num">(12, 6)</td><td class="col-num">68</td></tr>
+                <tr><td><span class="place-other">9th</span></td><td>Gavin Vetrano &amp; Brandon Holland</td><td class="col-num">(6, 12)</td><td class="col-num">69</td></tr>
+                <tr><td><span class="place-other">10th</span></td><td>Tommy Farrell &amp; Jon Thomas</td><td class="col-num">(10, 13)</td><td class="col-num">71</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Round 2: Scramble ═══ -->
+        <div class="round-panel" id="round-2">
+          <div class="round-info">
+            <span class="round-info-item"><strong>Round 2</strong></span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item"><span class="course-badge course-forge">Iron Forge</span> Black Tees</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">2-Man Scramble</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Friday 3:20 PM</span>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width:50px">Place</th>
+                  <th>Team</th>
+                  <th class="col-num">HCPs</th>
+                  <th class="col-num">Team HCP</th>
+                  <th class="col-num">Net Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="place-badge place-1st">1st</span></td><td>Josh Moss &amp; Mark Graner</td><td class="col-num">(0, 20)</td><td class="col-num">3</td><td class="col-num"><strong>29.5</strong></td></tr>
+                <tr><td><span class="place-badge place-2nd">2nd</span></td><td>Gavin Vetrano &amp; Matt Rykiel</td><td class="col-num">(8, 9)</td><td class="col-num">4.15</td><td class="col-num"><strong>31.92</strong></td></tr>
+                <tr><td><span class="place-badge place-3rd">3rd</span></td><td>Jon Thomas &amp; Steve Smith</td><td class="col-num">(14, 19)</td><td class="col-num">7.75</td><td class="col-num"><strong>32.12</strong></td></tr>
+                <tr><td><span class="place-other">4th</span></td><td>Mike Furman &amp; Brandon Holland</td><td class="col-num">(3, 14)</td><td class="col-num">3.15</td><td class="col-num">32.42</td></tr>
+                <tr><td><span class="place-other">5th</span></td><td>Bret Custer &amp; Chris Fong</td><td class="col-num">(8, 9)</td><td class="col-num">4.15</td><td class="col-num">32.92</td></tr>
+                <tr><td><span class="place-other">T6th</span></td><td>Petey Lytle &amp; Seth Kaas</td><td class="col-num">(9, 16)</td><td class="col-num">5.55</td><td class="col-num">33.22</td></tr>
+                <tr><td><span class="place-other">T6th</span></td><td>Anthony Farrell &amp; Kevin Flanagan</td><td class="col-num">(5, 12)</td><td class="col-num">3.55</td><td class="col-num">33.22</td></tr>
+                <tr><td><span class="place-other">8th</span></td><td>Derek Chiarella &amp; Tim Boykin</td><td class="col-num">(13, 21)</td><td class="col-num">7.7</td><td class="col-num">34.15</td></tr>
+                <tr><td><span class="place-other">9th</span></td><td>Trace Ferre &amp; Tommy Farrell</td><td class="col-num">(7, 11)</td><td class="col-num">4.1</td><td class="col-num">36.95</td></tr>
+                <tr><td><span class="place-other">10th</span></td><td>Brad Hilgenfeld &amp; Eric Upchurch</td><td class="col-num">(7, 24)</td><td class="col-num">6.05</td><td class="col-num">36.97</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="footnote">
+            <strong>Scramble HCP formula:</strong> Team handicap = 35% of lower HCP + 15% of higher HCP.
+          </div>
+        </div>
+
+        <!-- ═══ Round 3: Better Ball ═══ -->
+        <div class="round-panel" id="round-3">
+          <div class="round-info">
+            <span class="round-info-item"><strong>Round 3</strong></span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item"><span class="course-badge course-forge">Iron Forge</span> White Tees</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Better Ball (Net Stroke Play)</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Saturday 8:20 AM</span>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width:50px">Place</th>
+                  <th>Team</th>
+                  <th class="col-num">HCPs</th>
+                  <th class="col-num">Net Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="place-badge place-1st">T1st</span></td><td>Gavin Vetrano &amp; Seth Kaas</td><td class="col-num">(4, 13)</td><td class="col-num"><strong>63</strong></td></tr>
+                <tr><td><span class="place-badge place-1st">T1st</span></td><td>Tommy Farrell &amp; Bret Custer</td><td class="col-num">(8, 4)</td><td class="col-num"><strong>63</strong></td></tr>
+                <tr><td><span class="place-badge place-3rd">T3rd</span></td><td>Tim Boykin &amp; Jon Thomas</td><td class="col-num">(17, 11)</td><td class="col-num"><strong>64</strong></td></tr>
+                <tr><td><span class="place-badge place-3rd">T3rd</span></td><td>Mike Furman &amp; Josh Moss</td><td class="col-num">(0, -3)</td><td class="col-num"><strong>64</strong></td></tr>
+                <tr><td><span class="place-other">T5th</span></td><td>Brad Hilgenfeld &amp; Brandon Holland</td><td class="col-num">(3, 10)</td><td class="col-num">65</td></tr>
+                <tr><td><span class="place-other">T5th</span></td><td>Steve Smith &amp; Trace Ferre</td><td class="col-num">(16, 4)</td><td class="col-num">65</td></tr>
+                <tr><td><span class="place-other">T5th</span></td><td>Kevin Flanagan &amp; Mark Graner</td><td class="col-num">(9, 16)</td><td class="col-num">65</td></tr>
+                <tr><td><span class="place-other">T8th</span></td><td>Matt Rykiel &amp; Petey Lytle</td><td class="col-num">(6, 6)</td><td class="col-num">67</td></tr>
+                <tr><td><span class="place-other">T8th</span></td><td>Derek Chiarella &amp; Chris Fong</td><td class="col-num">(9, 5)</td><td class="col-num">67</td></tr>
+                <tr><td><span class="place-other">T8th</span></td><td>Anthony Farrell &amp; Eric Upchurch</td><td class="col-num">(1, 20)</td><td class="col-num">67</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Round 4: Scramble ═══ -->
+        <div class="round-panel" id="round-4">
+          <div class="round-info">
+            <span class="round-info-item"><strong>Round 4</strong></span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item"><span class="course-badge course-founders">Founders</span> Dark Green Tees</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">2-Man Scramble</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Saturday 2:15 PM</span>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width:50px">Place</th>
+                  <th>Team</th>
+                  <th class="col-num">HCPs</th>
+                  <th class="col-num">Team HCP</th>
+                  <th class="col-num">Net Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="place-badge place-1st">1st</span></td><td>Bret Custer &amp; Jon Thomas</td><td class="col-num">(6, 13)</td><td class="col-num">4.05</td><td class="col-num"><strong>61.95</strong></td></tr>
+                <tr><td><span class="place-badge place-2nd">2nd</span></td><td>Petey Lytle &amp; Brandon Holland</td><td class="col-num">(8, 12)</td><td class="col-num">4.6</td><td class="col-num"><strong>63.4</strong></td></tr>
+                <tr><td><span class="place-badge place-3rd">3rd</span></td><td>Josh Moss &amp; Steve Smith</td><td class="col-num">(-2, 18)</td><td class="col-num">2</td><td class="col-num"><strong>66</strong></td></tr>
+                <tr><td><span class="place-other">4th</span></td><td>Anthony Farrell &amp; Brad Hilgenfeld</td><td class="col-num">(3, 5)</td><td class="col-num">1.8</td><td class="col-num">66.2</td></tr>
+                <tr><td><span class="place-other">5th</span></td><td>Tommy Farrell &amp; Tim Boykin</td><td class="col-num">(10, 20)</td><td class="col-num">6.5</td><td class="col-num">66.5</td></tr>
+                <tr><td><span class="place-other">6th</span></td><td>Chris Fong &amp; Kevin Flanagan</td><td class="col-num">(7, 11)</td><td class="col-num">4.1</td><td class="col-num">66.9</td></tr>
+                <tr><td><span class="place-other">7th</span></td><td>Matt Rykiel &amp; Seth Kaas</td><td class="col-num">(8, 15)</td><td class="col-num">5.05</td><td class="col-num">66.95</td></tr>
+                <tr><td><span class="place-other">8th</span></td><td>Mike Furman &amp; Eric Upchurch</td><td class="col-num">(2, 22)</td><td class="col-num">4</td><td class="col-num">67</td></tr>
+                <tr><td><span class="place-other">9th</span></td><td>Gavin Vetrano &amp; Derek Chiarella</td><td class="col-num">(6, 12)</td><td class="col-num">3.9</td><td class="col-num">67.1</td></tr>
+                <tr><td><span class="place-other">10th</span></td><td>Trace Ferre &amp; Mark Graner</td><td class="col-num">(6, 18)</td><td class="col-num">4.8</td><td class="col-num">68.2</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="footnote">
+            <strong>Scramble HCP formula:</strong> Team handicap = 35% of lower HCP + 15% of higher HCP.
+          </div>
+        </div>
+
+        <!-- ═══ Sunday Individual ═══ -->
+        <div class="round-panel" id="round-sunday">
+          <div class="round-info">
+            <span class="round-info-item"><strong>Sunday Individual</strong></span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item"><span class="course-badge course-forge">Iron Forge</span> Blue Tees</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Individual Stroke Play</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Sunday 7:00 AM</span>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width:50px">Rank</th>
+                  <th>Player</th>
+                  <th class="col-num">Gross</th>
+                  <th class="col-num">HCP</th>
+                  <th class="col-num">Pops</th>
+                  <th class="col-num">Net</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><span class="rank-badge rank-1">1</span></td><td>Josh Moss</td><td class="col-num">72</td><td class="col-num">-2</td><td class="col-num">6</td><td class="col-num"><strong>68</strong></td></tr>
+                <tr><td><span class="rank-badge rank-2">2</span></td><td>Eric Upchurch</td><td class="col-num">92</td><td class="col-num">21</td><td class="col-num">&mdash;</td><td class="col-num"><strong>71</strong></td></tr>
+                <tr><td><span class="rank-badge rank-3">T3</span></td><td>Anthony Farrell</td><td class="col-num">75</td><td class="col-num">3</td><td class="col-num">&mdash;</td><td class="col-num"><strong>72</strong></td></tr>
+                <tr><td><span class="rank-badge rank-3">T3</span></td><td>Chris Fong</td><td class="col-num">79</td><td class="col-num">7</td><td class="col-num">&mdash;</td><td class="col-num"><strong>72</strong></td></tr>
+                <tr><td><span class="rank-badge rank-other">5</span></td><td>Seth Kaas</td><td class="col-num">88</td><td class="col-num">14</td><td class="col-num">1</td><td class="col-num">73</td></tr>
+                <tr><td><span class="rank-badge rank-other">6</span></td><td>Matt Rykiel</td><td class="col-num">82</td><td class="col-num">7</td><td class="col-num">1</td><td class="col-num">74</td></tr>
+                <tr><td><span class="rank-badge rank-other">7</span></td><td>Jon Thomas</td><td class="col-num">92</td><td class="col-num">12</td><td class="col-num">5</td><td class="col-num">75</td></tr>
+                <tr><td><span class="rank-badge rank-other">T8</span></td><td>Petey Lytle</td><td class="col-num">83</td><td class="col-num">7</td><td class="col-num">&mdash;</td><td class="col-num">76</td></tr>
+                <tr><td><span class="rank-badge rank-other">T8</span></td><td>Kevin Flanagan</td><td class="col-num">86</td><td class="col-num">10</td><td class="col-num">&mdash;</td><td class="col-num">76</td></tr>
+                <tr><td><span class="rank-badge rank-other">10</span></td><td>Tommy Farrell</td><td class="col-num">86</td><td class="col-num">9</td><td class="col-num">&mdash;</td><td class="col-num">77</td></tr>
+                <tr><td><span class="rank-badge rank-other">11</span></td><td>Brandon Holland</td><td class="col-num">90</td><td class="col-num">12</td><td class="col-num">&mdash;</td><td class="col-num">78</td></tr>
+                <tr><td><span class="rank-badge rank-other">T11</span></td><td>Mark Graner</td><td class="col-num">98</td><td class="col-num">18</td><td class="col-num">2</td><td class="col-num">78</td></tr>
+                <tr><td><span class="rank-badge rank-other">T13</span></td><td>Mike Furman</td><td class="col-num">81</td><td class="col-num">2</td><td class="col-num">&mdash;</td><td class="col-num">79</td></tr>
+                <tr><td><span class="rank-badge rank-other">T13</span></td><td>Trace Ferre</td><td class="col-num">84</td><td class="col-num">5</td><td class="col-num">&mdash;</td><td class="col-num">79</td></tr>
+                <tr><td><span class="rank-badge rank-other">T13</span></td><td>Gavin Vetrano</td><td class="col-num">86</td><td class="col-num">6</td><td class="col-num">1</td><td class="col-num">79</td></tr>
+                <tr><td><span class="rank-badge rank-other">T13</span></td><td>Derek Chiarella</td><td class="col-num">90</td><td class="col-num">11</td><td class="col-num">&mdash;</td><td class="col-num">79</td></tr>
+                <tr><td><span class="rank-badge rank-other">T13</span></td><td>Steve Smith</td><td class="col-num">100</td><td class="col-num">17</td><td class="col-num">4</td><td class="col-num">79</td></tr>
+                <tr><td><span class="rank-badge rank-other">18</span></td><td>Brad Hilgenfeld</td><td class="col-num">87</td><td class="col-num">5</td><td class="col-num">&mdash;</td><td class="col-num">82</td></tr>
+                <tr><td><span class="rank-badge rank-other">19</span></td><td>Bret Custer</td><td class="col-num">93</td><td class="col-num">6</td><td class="col-num">3</td><td class="col-num">84</td></tr>
+                <tr><td><span class="rank-badge rank-other">20</span></td><td>Tim Boykin</td><td class="col-num">DNP</td><td class="col-num">19</td><td class="col-num">&mdash;</td><td class="col-num">DNP</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Closest-to-Pin ═══ -->
+        <div class="round-panel" id="round-ctp">
+          <h2 class="section-title">Closest-to-Pin Winners</h2>
+          <div class="gold-rule"></div>
+
+          <div class="awards-grid">
+            <div class="award-card"><div class="award-card-label">Friday Founders &mdash; #3</div><div class="award-card-winner">Chris Fong</div></div>
+            <div class="award-card"><div class="award-card-label">Friday Iron Forge &mdash; #6</div><div class="award-card-winner">Chris Fong</div></div>
+            <div class="award-card"><div class="award-card-label">Saturday Iron Forge &mdash; #6</div><div class="award-card-winner">Trace Ferre</div></div>
+            <div class="award-card"><div class="award-card-label">Saturday Founders &mdash; #3</div><div class="award-card-winner">Chris Fong</div></div>
+            <div class="award-card"><div class="award-card-label">Friday Founders &mdash; #9</div><div class="award-card-winner">Josh Moss</div></div>
+            <div class="award-card"><div class="award-card-label">Friday Iron Forge &mdash; #13</div><div class="award-card-winner">Eric Upchurch</div></div>
+            <div class="award-card"><div class="award-card-label">Saturday Iron Forge &mdash; #13</div><div class="award-card-winner">Eric Upchurch</div></div>
+            <div class="award-card"><div class="award-card-label">Saturday Founders &mdash; #9</div><div class="award-card-winner">Derek Chiarella</div></div>
+            <div class="award-card"><div class="award-card-label">Friday Founders &mdash; #17</div><div class="award-card-winner">Anthony Farrell</div></div>
+            <div class="award-card"><div class="award-card-label">Friday Iron Forge &mdash; #16</div><div class="award-card-winner">Chris Fong</div></div>
+            <div class="award-card"><div class="award-card-label">Saturday Iron Forge &mdash; #16</div><div class="award-card-winner">Brandon Holland</div></div>
+            <div class="award-card"><div class="award-card-label">Saturday Founders &mdash; #17</div><div class="award-card-winner">Bret Custer</div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    PennNat.initRoundTabs();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Penn National Golf Tournament — All-Time Record Books and Leaderboards">
+  <title>Record Books — Penn National Golf Tournament</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+  <script src="shared.js"></script>
+
+  <main>
+
+    <div class="page-header">
+      <div class="container">
+        <span class="section-label">All-Time Records</span>
+        <h1>Record Books</h1>
+        <p class="page-subtitle">Penn National Golf Club &mdash; Fayetteville, PA &mdash; Est. 2019</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Tab bar -->
+        <div class="tab-bar" role="tablist" id="record-tabs">
+          <button class="tab-btn active" data-tab="tab-points">Points</button>
+          <button class="tab-btn" data-tab="tab-bb">Net Better Ball</button>
+          <button class="tab-btn" data-tab="tab-scramble">Gross Scramble</button>
+          <button class="tab-btn" data-tab="tab-net-ind">Net Individual</button>
+          <button class="tab-btn" data-tab="tab-gross-ind">Gross Individual</button>
+          <button class="tab-btn" data-tab="tab-sunday-avg">Sunday Net Avg</button>
+          <button class="tab-btn" data-tab="tab-eagles">Eagles</button>
+          <button class="tab-btn" data-tab="tab-ctp">Closest-to-Pin</button>
+          <button class="tab-btn" data-tab="tab-ld">Long Drives</button>
+          <button class="tab-btn" data-tab="tab-oad">One-and-Doners</button>
+        </div>
+
+        <!-- ═══ Tab 1: All-Time Points ═══ -->
+        <div class="tab-panel active" id="tab-points">
+          <h2 class="section-title">All-Time Points Leaderboard</h2>
+          <div class="gold-rule"></div>
+          <div class="data-table-wrap">
+            <table class="data-table" id="points-table">
+              <thead>
+                <tr>
+                  <th class="sortable" style="width:60px">Rank</th>
+                  <th class="sortable">Player</th>
+                  <th class="sortable col-num">Years</th>
+                  <th class="sortable col-num">Total Pts</th>
+                  <th class="sortable col-num">Pts/Yr</th>
+                </tr>
+              </thead>
+              <tbody id="points-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Tab 2: Lowest Net Better Ball ═══ -->
+        <div class="tab-panel" id="tab-bb">
+          <h2 class="section-title">Lowest Net Better Ball Rounds</h2>
+          <div class="gold-rule"></div>
+          <ol class="record-list" id="bb-list"></ol>
+        </div>
+
+        <!-- ═══ Tab 3: Lowest Gross Scramble ═══ -->
+        <div class="tab-panel" id="tab-scramble">
+          <h2 class="section-title">Lowest Gross Scramble Rounds</h2>
+          <div class="gold-rule"></div>
+          <ol class="record-list" id="scramble-list"></ol>
+        </div>
+
+        <!-- ═══ Tab 4: Lowest Net Individual ═══ -->
+        <div class="tab-panel" id="tab-net-ind">
+          <h2 class="section-title">Lowest Net Individual Rounds</h2>
+          <div class="gold-rule"></div>
+          <ol class="record-list" id="net-ind-list"></ol>
+        </div>
+
+        <!-- ═══ Tab 5: Lowest Gross Individual ═══ -->
+        <div class="tab-panel" id="tab-gross-ind">
+          <h2 class="section-title">Lowest Gross Individual Rounds</h2>
+          <div class="gold-rule"></div>
+          <ol class="record-list" id="gross-ind-list"></ol>
+        </div>
+
+        <!-- ═══ Tab 6: Sunday Net Scoring Average ═══ -->
+        <div class="tab-panel" id="tab-sunday-avg">
+          <h2 class="section-title">Sunday Net Scoring Average</h2>
+          <div class="gold-rule"></div>
+          <div class="data-table-wrap">
+            <table class="data-table" id="sunday-table">
+              <thead>
+                <tr>
+                  <th class="sortable" style="width:60px">Rank</th>
+                  <th class="sortable">Player</th>
+                  <th class="sortable col-num">2022</th>
+                  <th class="sortable col-num">2023</th>
+                  <th class="sortable col-num">2024</th>
+                  <th class="sortable col-num">2025</th>
+                  <th class="sortable col-num">Avg</th>
+                </tr>
+              </thead>
+              <tbody id="sunday-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Tab 7: Eagles ═══ -->
+        <div class="tab-panel" id="tab-eagles">
+          <h2 class="section-title">Eagles</h2>
+          <div class="gold-rule"></div>
+          <ol class="record-list" id="eagles-list"></ol>
+        </div>
+
+        <!-- ═══ Tab 8: Most Career Closest-to-Pins ═══ -->
+        <div class="tab-panel" id="tab-ctp">
+          <h2 class="section-title">Most Career Closest-to-Pins</h2>
+          <div class="gold-rule"></div>
+          <div class="data-table-wrap">
+            <table class="data-table" id="ctp-table">
+              <thead>
+                <tr>
+                  <th style="width:60px">Rank</th>
+                  <th>Player</th>
+                  <th class="col-num">Count</th>
+                </tr>
+              </thead>
+              <tbody id="ctp-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Tab 9: Most Career Long Drives ═══ -->
+        <div class="tab-panel" id="tab-ld">
+          <h2 class="section-title">Most Career Long Drives</h2>
+          <div class="gold-rule"></div>
+          <div class="data-table-wrap">
+            <table class="data-table" id="ld-table">
+              <thead>
+                <tr>
+                  <th style="width:60px">Rank</th>
+                  <th>Player</th>
+                  <th class="col-num">Count</th>
+                </tr>
+              </thead>
+              <tbody id="ld-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Tab 10: One-and-Doners ═══ -->
+        <div class="tab-panel" id="tab-oad">
+          <h2 class="section-title">One-and-Doners</h2>
+          <div class="gold-rule"></div>
+          <p style="color:var(--gray);margin-bottom:1.5rem;font-size:0.9rem;">Players who attended only once &mdash; legends in their own right.</p>
+          <div class="data-table-wrap">
+            <table class="data-table" id="oad-table">
+              <thead>
+                <tr>
+                  <th style="width:60px">Rank</th>
+                  <th>Player</th>
+                  <th class="col-num">Year</th>
+                  <th class="col-num">Points</th>
+                </tr>
+              </thead>
+              <tbody id="oad-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ══════════════════════════════════════════════════════════════════════
+    // DATA
+    // ══════════════════════════════════════════════════════════════════════
+
+    var pointsData = [
+      { rank: 1,  name: 'Tommy Farrell',      years: 7, pts: 64.5,  ppyr: 9.21 },
+      { rank: 2,  name: 'Bret Custer',        years: 7, pts: 63,    ppyr: 9.0 },
+      { rank: 3,  name: 'Mark Graner',        years: 5, pts: 44.58, ppyr: 8.92 },
+      { rank: 4,  name: 'Andrew Argandona',   years: 1, pts: 8,     ppyr: 8.0 },
+      { rank: 5,  name: 'Josh Moss',          years: 4, pts: 31,    ppyr: 7.75 },
+      { rank: 6,  name: 'Brandon Holland',    years: 3, pts: 22.83, ppyr: 7.61 },
+      { rank: 7,  name: 'Seth Kaas',          years: 7, pts: 52.5,  ppyr: 7.5 },
+      { rank: 8,  name: 'Trace Ferre',        years: 3, pts: 22.33, ppyr: 7.44 },
+      { rank: 9,  name: 'Kevin Flanagan',     years: 3, pts: 21.58, ppyr: 7.19 },
+      { rank: 10, name: 'Mike Shipway',       years: 3, pts: 21.5,  ppyr: 7.17 },
+      { rank: 11, name: 'Eric DiFulvio',      years: 1, pts: 7,     ppyr: 7.0 },
+      { rank: 12, name: 'Gavin Vetrano',      years: 7, pts: 47.5,  ppyr: 6.79 },
+      { rank: 13, name: 'Anthony Farrell',    years: 4, pts: 27,    ppyr: 6.75 },
+      { rank: 14, name: 'Eric Upchurch',      years: 7, pts: 46.5,  ppyr: 6.64 },
+      { rank: 15, name: 'Petey Lytle',        years: 7, pts: 43,    ppyr: 6.14 },
+      { rank: 16, name: 'Brandon Orbe',       years: 2, pts: 10.5,  ppyr: 5.25 },
+      { rank: 17, name: 'Jarrett Young',      years: 1, pts: 5,     ppyr: 5.0 },
+      { rank: 18, name: 'Steve Smith',        years: 4, pts: 19.08, ppyr: 4.77 },
+      { rank: 19, name: 'Jon Thomas',         years: 4, pts: 17.5,  ppyr: 4.38 },
+      { rank: 20, name: 'Chris Fong',         years: 2, pts: 7.5,   ppyr: 3.75 },
+      { rank: 21, name: 'Derek Chiarella',    years: 4, pts: 14.5,  ppyr: 3.62 },
+      { rank: 22, name: 'Chase Bertke',       years: 2, pts: 7,     ppyr: 3.5 },
+      { rank: 23, name: 'Tim Boykin',         years: 5, pts: 10,    ppyr: 2.0 },
+      { rank: 24, name: 'Mike Furman',        years: 7, pts: 9.5,   ppyr: 1.36 },
+    ];
+
+    var bbData = [
+      'Seth Kaas & Tom Farrell Sr - 55 Founders 2020 (Dark Green)',
+      'Josh Moss & Tommy Farrell - 58 Iron Forge 2022 (Blue Tees)',
+      'Mike Furman & Anthony Mollitor - 59 Iron Forge 2022 (Blue Tees)',
+      'Gavin Vetrano & Niko Mikolike - 59 Iron Forge 2020 (Blue Tees)',
+      'Bret Custer & Mark Graner - 60 Founders 2021 (Dark Green)',
+      'Seth Kaas & Brandon Holland - 60 Iron Forge 2025 (White Tees)',
+      'Brandon Orbe & Trace Ferre - 61 Iron Forge 2024 (White Tees)',
+      'Bret Custer & Petey Lytle - 61 Founders 2025 (Dark Green)',
+      'Mark Graner & Eric DiFulvio - 61 Founders 2025 (Dark Green)',
+      'Mike Furman & Anthony Farrell - 62 Founders 2021 (Dark Green)',
+      'Steve Smith & Mark Graner - 62 Founders 2023 (Dark Green)',
+      'Tommy Farrell & Eric Upchurch - 62 Founders 2024 (Dark Green)',
+      'Derek Chiarella & Andrew Argandona - 62 Iron Forge 2025 (White Tees)',
+      'Josh Moss & Mike Furman - 64 (62 gross) Iron Forge 2023 (White Tees)',
+      'Trace Ferre & Mark Graner - 64 Founders 2024 (Dark Green)',
+      'Bret Custer & Kohl Meyer - 64 Iron Forge 2024 (White Tees)',
+      'Drew Hutcheon & Tommy Farrell - 64 Iron Forge 2024 (White Tees)',
+    ];
+
+    var scrambleData = [
+      'Josh Moss & Drew Hutcheon - 62 Founders 2024 (Dark Green)',
+      'Josh Moss & Derek Chiarella - 63 Iron Forge 2024 (Black Tees)',
+      'Brandon Holland & Gavin Vetrano - 63 Iron Forge 2025 (Blue Tees)',
+      'Mike Furman & Petey Lytle - 64 Iron Forge 2020 (White Tees)',
+      'Mike Furman & Drew Hutcheon - 64 Iron Forge 2024 (Black Tees)',
+      'Josh Moss & Jon Thomas - 65 Iron Forge 2022 (White Tees)',
+      'Mike Furman & Mike Shipway - 65 Iron Forge 2022 (White Tees)',
+      'Josh Moss & Tim Boykin - 65 Iron Forge 2025 (Blue Tees)',
+      'Bret Custer & Jon Thomas - 66 Founders 2023 (Dark Green)',
+      'Mike Furman & Gavin Vetrano - 67 Founders 2022 (Dark Green)',
+      'Mike Furman & Trace Ferre - 67 Founders 2024 (Dark Green)',
+      'Josh Moss & Brandon Holland - 67 Founders 2025 (Blue Tees)',
+      'Anthony Farrell & Paul Duplessis - 68 Founders 2021 (Dark Green)',
+      'Josh Moss & Brandon Holland - 68 Founders 2022 (Dark Green)',
+      'Chase Bertke & Eric Upchurch - 68 Founders 2024 (Dark Green)',
+    ];
+
+    var netIndData = [
+      'Seth Kaas: 80 net 62 Founders 2020 (Dark Green Tees)',
+      'Anthony Mollitor: 84 net 64 Iron Forge 2022 (Blue Tees)',
+      'Anthony Farrell: 75 net 65 Iron Forge 2021 (Blue Tees)',
+      'Seth Kaas: 76 net 65 Iron Forge 2025 (White Tees)',
+      'Mark Graner: 83 net 65 Founders 2025 (Dark Green Tees)',
+      'Tommy Farrell: 80 net 66 Iron Forge 2022 (Blue Tees)',
+      'Eric Upchurch: 88 net 66 Founders 2021 (Dark Green Tees)',
+      'Tom Farrell Sr: 74 net 66 Iron Forge 2024 (White Tees)',
+      'Trace Ferre: 71 net 67 Iron Forge 2023 (White Tees)',
+      'Jon Thomas: 79 net 67 Iron Forge 2023 (White Tees)',
+      'Seth Kaas: 80 net 67 Iron Forge 2023 (White Tees)',
+      'Tommy Farrell: 78 net 67 Founders 2024 (Dark Green)',
+      'Brandon Orbe: 71 net 68 Iron Forge 2024 (White Tees)',
+      'Dan Crowley: 79 net 68 Iron Forge 2024 (Blue Tees)',
+      'Jon Thomas: 81 net 68 Founders 2025 (Dark Green Tees)',
+      'Mark Graner: 87 net 69 Founders 2021 (Dark Green Tees)',
+      'Brandon Holland: 79 net 69 Iron Forge 2023 (White Tees)',
+      'Jon Thomas: 82 net 69 Iron Forge 2024 (Blue Tees)',
+    ];
+
+    var grossIndData = [
+      'Josh Moss: 67 Iron Forge 2022 (Blue Tees)',
+      'Josh Moss: 68 Iron Forge 2023 (White Tees)',
+      'Josh Moss: 68 Iron Forge 2024 (White Tees)',
+      'Mike Furman: 69 Iron Forge 2022 (Blue Tees)',
+      'Mike Furman: 69 Iron Forge 2023 (White Tees)',
+      'Josh Moss: 69 Founders 2025 (Dark Green)',
+      'Josh Moss: 69 Founders 2025 (Dark Green)',
+      'Josh Moss: 70 Founders 2023 (Dark Green)',
+      'Trace Ferre: 71 Iron Forge 2023 (White Tees)',
+      'Brandon Orbe: 71 Iron Forge 2024 (White Tees)',
+      'Mike Furman: 71 Iron Forge 2025 (White Tees)',
+      'Josh Moss: 71 Iron Forge 2025 (White Tees)',
+      'Mike Furman: 72 Iron Forge 2020 (Blue Tees)',
+      'Josh Moss: 72 Iron Forge 2023 (Blue Tees)',
+      'Mike Furman: 72 Founders 2021 (Dark Green Tees)',
+      'Mike Furman: 72 Founders 2023 (Dark Green Tees)',
+      'Tom Farrell Sr: 74 Iron Forge 2024 (White Tees)',
+      'Bret Custer: 75 Founders 2019 (Dark Green Tees)',
+      'Bret Custer: 75 Iron Forge 2019 (White Tees)',
+      'Niko Mikolike: 75 Iron Forge 2020 (Blue Tees)',
+      'Anthony Farrell: 75 Iron Forge 2021 (Blue Tees)',
+    ];
+
+    var sundayData = [
+      { rank: 1,  name: 'Dan Crowley',       y2022: '-', y2023: '-', y2024: '68', y2025: '-',  avg: 68.0 },
+      { rank: 2,  name: 'Chris Fong',        y2022: '71', y2023: '72', y2024: '-', y2025: '-', avg: 71.5 },
+      { rank: 3,  name: 'Kohl Meyer',        y2022: '-', y2023: '-', y2024: '72', y2025: '-',  avg: 72.0 },
+      { rank: 4,  name: 'Tommy Farrell',     y2022: '69', y2023: '77', y2024: '71', y2025: '72', avg: 72.2 },
+      { rank: 5,  name: 'Brandon Holland',   y2022: '69', y2023: '78', y2024: '-', y2025: '70', avg: 72.3 },
+      { rank: 6,  name: 'Chase Bertke',      y2022: '67', y2023: '-', y2024: '79', y2025: '-',  avg: 73.0 },
+      { rank: 7,  name: 'Brandon Orbe',      y2022: '-', y2023: '-', y2024: '75', y2025: '72',  avg: 73.5 },
+      { rank: 8,  name: 'Tom Farrell Sr',    y2022: '77', y2023: '-', y2024: '66', y2025: '78', avg: 73.7 },
+      { rank: 9,  name: 'Anthony Farrell',   y2022: '76', y2023: '72', y2024: '-', y2025: '-',  avg: 74.0 },
+      { rank: 10, name: 'Josh Moss',         y2022: '68', y2023: '74', y2024: '81', y2025: '75', avg: 74.5 },
+      { rank: 11, name: 'Drew Hutcheon',     y2022: '-', y2023: '-', y2024: '75', y2025: '-',   avg: 75.0 },
+      { rank: 12, name: 'Jon Thomas',        y2022: '83', y2023: '80', y2024: '69', y2025: '68', avg: 75.0 },
+      { rank: 13, name: 'Kevin Flanagan',    y2022: '-', y2023: '76', y2024: '-', y2025: '-',   avg: 76.0 },
+      { rank: 14, name: 'Derek Chiarella',   y2022: '76', y2023: '79', y2024: '74', y2025: '75', avg: 76.0 },
+      { rank: 15, name: 'Seth Kaas',         y2022: '74', y2023: '74', y2024: '78', y2025: '79', avg: 76.2 },
+      { rank: 16, name: 'Mike Furman',       y2022: '76', y2023: '79', y2024: '76', y2025: '74', avg: 76.2 },
+      { rank: 17, name: 'Mark Graner',       y2022: '75', y2023: '80', y2024: '75', y2025: '78', avg: 77.0 },
+      { rank: 18, name: 'Jarrett Young',     y2022: '-', y2023: '-', y2024: '-', y2025: '77',   avg: 77.0 },
+      { rank: 19, name: 'Eric Upchurch',     y2022: '77', y2023: '71', y2024: '79', y2025: '83', avg: 77.5 },
+      { rank: 20, name: 'Trace Ferre',       y2022: '-', y2023: '79', y2024: '73', y2025: '82', avg: 78.0 },
+      { rank: 21, name: 'Bret Custer',       y2022: '78', y2023: '87', y2024: '74', y2025: '73', avg: 78.0 },
+      { rank: 22, name: 'Eric DiFulvio',     y2022: '-', y2023: '-', y2024: '-', y2025: '79',   avg: 79.0 },
+      { rank: 23, name: 'Steve Smith',       y2022: '75', y2023: '83', y2024: '77', y2025: '83', avg: 79.5 },
+      { rank: 24, name: 'Petey Lytle',       y2022: '82', y2023: '76', y2024: '83', y2025: '78', avg: 79.8 },
+      { rank: 25, name: 'Gavin Vetrano',     y2022: '80', y2023: '80', y2024: '77', y2025: '90', avg: 81.8 },
+      { rank: 26, name: 'Andrew Argandona',  y2022: '-', y2023: '-', y2024: '-', y2025: '82',   avg: 82.0 },
+      { rank: 27, name: 'Tim Boykin',        y2022: '-', y2023: '-', y2024: '91', y2025: '85',  avg: 88.0 },
+    ];
+
+    var eaglesData = [
+      'Bret Custer — 2019 Iron Forge #7 (White Tees)',
+      'Gavin Vetrano — 2020 Founders #7 (Dark Green)',
+      'Bret Custer — 2021 Iron Forge #17 (White Tees)',
+      'Matt Rykiel — 2023 Founders #2 (Dark Green)',
+      'Mike Furman — 2023 Founders #7 (Dark Green)',
+      'Kohl Meyer — 2024 Forge #15 (White Tees)',
+      'Drew Hutcheon — 2024 Forge #15 (White Tees)',
+      'Mike Furman — 2025 Founders #10 (Dark Green)',
+    ];
+
+    var ctpData = [
+      { name: 'Gavin Vetrano', count: 7 },
+      { name: 'Bret Custer', count: 5 },
+      { name: 'Mike Furman', count: 5 },
+      { name: 'Chris Fong', count: 4 },
+      { name: 'Eric Upchurch', count: 4 },
+      { name: 'Derek Chiarella', count: 3 },
+      { name: 'Mark Graner', count: 3 },
+      { name: 'Mike Shipway', count: 2 },
+      { name: 'Chase Bertke', count: 2 },
+      { name: 'Brandon Holland', count: 2 },
+      { name: 'Josh Moss', count: 2 },
+      { name: 'Trace Ferre', count: 2 },
+      { name: 'Tommy Farrell', count: 2 },
+    ];
+
+    var ldData = [
+      { name: 'Josh Moss', count: 9 },
+      { name: 'Anthony Farrell', count: 3 },
+      { name: 'Eric Upchurch', count: 2 },
+      { name: 'Ramesh Sundaresan', count: 2 },
+      { name: 'Seth Kaas', count: 2 },
+    ];
+
+    var oadData = [
+      { rank: 1,  name: 'Anthony "Scratch" Mollitor', year: 2022, pts: 9 },
+      { rank: 2,  name: 'Niko Mikolike',              year: 2020, pts: 8 },
+      { rank: 3,  name: 'Matt Rykiel',                year: 2023, pts: 6.5 },
+      { rank: 4,  name: 'Brad Hilgenfeld',            year: 2023, pts: 6.33 },
+      { rank: 5,  name: 'Kohl "Hole 15" Meyer',       year: 2024, pts: 3.5 },
+      { rank: 6,  name: '"Bushes" Blaine Sitzmann',    year: 2021, pts: 2 },
+      { rank: 7,  name: 'Paul "Gems" du Plessis',     year: 2021, pts: 2 },
+      { rank: 8,  name: 'Michael "Duck" Ballard',     year: 2019, pts: 1 },
+      { rank: 9,  name: 'Lucas "White Tiger" Huddleston', year: 2020, pts: 1 },
+      { rank: 10, name: 'Ramesh "the God" Sundaresan', year: 2021, pts: 0 },
+      { rank: 11, name: 'Dan "Stan" Allen',            year: 2020, pts: 0 },
+      { rank: 12, name: 'Obie Boykin',                 year: 2019, pts: 0 },
+    ];
+
+    // ══════════════════════════════════════════════════════════════════════
+    // RENDER
+    // ══════════════════════════════════════════════════════════════════════
+
+    function esc(s) { return PennNat.escapeHTML(s); }
+
+    function rankBadge(r) {
+      var cls = r <= 3 ? 'rank-' + r : 'rank-other';
+      return '<span class="rank-badge ' + cls + '">' + r + '</span>';
+    }
+
+    function parseCourseFromString(s) {
+      if (/Founders/i.test(s)) return 'course-founders';
+      if (/Iron Forge|Forge/i.test(s)) return 'course-forge';
+      return '';
+    }
+
+    function parseRecordEntry(s) {
+      // Split into players/score and details
+      var parts = s.split(' - ');
+      var players = parts[0] || '';
+      var rest = parts.slice(1).join(' - ');
+      // Extract score (first number in rest)
+      var scoreMatch = rest.match(/^(\d+)/);
+      var score = scoreMatch ? scoreMatch[1] : '';
+      var detail = rest.replace(/^\d+\s*/, '');
+      // Check for gross notation
+      var grossMatch = rest.match(/\((\d+)\s*gross\)/i);
+      if (grossMatch) {
+        detail = rest.replace(/^\d+\s*/, '');
+      }
+      var courseClass = parseCourseFromString(rest);
+      return { players: players, score: score, detail: detail, courseClass: courseClass };
+    }
+
+    // Points table
+    (function () {
+      var tbody = document.getElementById('points-tbody');
+      pointsData.forEach(function (p) {
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + rankBadge(p.rank) + '</td>' +
+          '<td>' + esc(p.name) + '</td>' +
+          '<td class="col-num" data-sort="' + p.years + '">' + p.years + '</td>' +
+          '<td class="col-num" data-sort="' + p.pts + '">' + p.pts + '</td>' +
+          '<td class="col-num" data-sort="' + p.ppyr + '">' + p.ppyr.toFixed(2) + '</td>';
+        tbody.appendChild(tr);
+      });
+      PennNat.makeSortable(document.getElementById('points-table'));
+    })();
+
+    // Record lists (Better Ball, Scramble, Net Ind, Gross Ind, Eagles)
+    function buildRecordList(containerId, data) {
+      var list = document.getElementById(containerId);
+      data.forEach(function (entry) {
+        var li = document.createElement('li');
+        var parsed = parseRecordEntry(entry);
+        var courseTag = parsed.courseClass
+          ? '<span class="course-badge ' + parsed.courseClass + '">' +
+            (/Founders/i.test(parsed.detail) ? 'Founders' : 'Iron Forge') + '</span> '
+          : '';
+        li.innerHTML =
+          '<span class="record-score">' + esc(parsed.score) + '</span>' +
+          '<span>' + esc(parsed.players) + ' &mdash; ' + courseTag +
+          '<span class="record-detail">' + esc(parsed.detail) + '</span></span>';
+        list.appendChild(li);
+      });
+    }
+
+    buildRecordList('bb-list', bbData);
+    buildRecordList('scramble-list', scrambleData);
+
+    // Net individual — different format "Player: gross net XX Course Year (Tees)"
+    (function () {
+      var list = document.getElementById('net-ind-list');
+      netIndData.forEach(function (entry) {
+        var li = document.createElement('li');
+        var parts = entry.split(': ');
+        var player = parts[0];
+        var rest = parts.slice(1).join(': ');
+        var m = rest.match(/(\d+)\s+net\s+(\d+)\s+(.*)/);
+        var gross = m ? m[1] : '';
+        var net = m ? m[2] : '';
+        var detail = m ? m[3] : rest;
+        var courseClass = parseCourseFromString(detail);
+        var courseTag = courseClass
+          ? '<span class="course-badge ' + courseClass + '">' +
+            (/Founders/i.test(detail) ? 'Founders' : 'Iron Forge') + '</span> '
+          : '';
+        li.innerHTML =
+          '<span class="record-score">' + esc(net) + '</span>' +
+          '<span>' + esc(player) + ' <span class="record-detail">(Gross: ' + esc(gross) + ')</span> &mdash; ' +
+          courseTag + '<span class="record-detail">' + esc(detail) + '</span></span>';
+        list.appendChild(li);
+      });
+    })();
+
+    // Gross individual — "Player: score Course Year (Tees)"
+    (function () {
+      var list = document.getElementById('gross-ind-list');
+      grossIndData.forEach(function (entry) {
+        var li = document.createElement('li');
+        var parts = entry.split(': ');
+        var player = parts[0];
+        var rest = parts.slice(1).join(': ');
+        var m = rest.match(/(\d+)\s+(.*)/);
+        var score = m ? m[1] : '';
+        var detail = m ? m[2] : rest;
+        var courseClass = parseCourseFromString(detail);
+        var courseTag = courseClass
+          ? '<span class="course-badge ' + courseClass + '">' +
+            (/Founders/i.test(detail) ? 'Founders' : 'Iron Forge') + '</span> '
+          : '';
+        li.innerHTML =
+          '<span class="record-score">' + esc(score) + '</span>' +
+          '<span>' + esc(player) + ' &mdash; ' + courseTag +
+          '<span class="record-detail">' + esc(detail) + '</span></span>';
+        list.appendChild(li);
+      });
+    })();
+
+    // Eagles
+    (function () {
+      var list = document.getElementById('eagles-list');
+      eaglesData.forEach(function (entry) {
+        var li = document.createElement('li');
+        var parts = entry.split(' — ');
+        var player = parts[0];
+        var detail = parts[1] || '';
+        var courseClass = parseCourseFromString(detail);
+        var courseTag = courseClass
+          ? '<span class="course-badge ' + courseClass + '">' +
+            (/Founders/i.test(detail) ? 'Founders' : 'Iron Forge') + '</span> '
+          : '';
+        li.innerHTML =
+          '<span>' + esc(player) + ' &mdash; ' + courseTag +
+          '<span class="record-detail">' + esc(detail) + '</span></span>';
+        list.appendChild(li);
+      });
+    })();
+
+    // Sunday average table
+    (function () {
+      var tbody = document.getElementById('sunday-tbody');
+      sundayData.forEach(function (p) {
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + rankBadge(p.rank) + '</td>' +
+          '<td>' + esc(p.name) + '</td>' +
+          '<td class="col-num" data-sort="' + (p.y2022 === '-' ? '999' : p.y2022) + '">' + p.y2022 + '</td>' +
+          '<td class="col-num" data-sort="' + (p.y2023 === '-' ? '999' : p.y2023) + '">' + p.y2023 + '</td>' +
+          '<td class="col-num" data-sort="' + (p.y2024 === '-' ? '999' : p.y2024) + '">' + p.y2024 + '</td>' +
+          '<td class="col-num" data-sort="' + (p.y2025 === '-' ? '999' : p.y2025) + '">' + p.y2025 + '</td>' +
+          '<td class="col-num" data-sort="' + p.avg + '"><strong>' + p.avg.toFixed(1) + '</strong></td>';
+        tbody.appendChild(tr);
+      });
+      PennNat.makeSortable(document.getElementById('sunday-table'));
+    })();
+
+    // CTP table
+    (function () {
+      var tbody = document.getElementById('ctp-tbody');
+      ctpData.forEach(function (p, i) {
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + rankBadge(i + 1) + '</td>' +
+          '<td>' + esc(p.name) + '</td>' +
+          '<td class="col-num"><strong>' + p.count + '</strong></td>';
+        tbody.appendChild(tr);
+      });
+    })();
+
+    // LD table
+    (function () {
+      var tbody = document.getElementById('ld-tbody');
+      ldData.forEach(function (p, i) {
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + rankBadge(i + 1) + '</td>' +
+          '<td>' + esc(p.name) + '</td>' +
+          '<td class="col-num"><strong>' + p.count + '</strong></td>';
+        tbody.appendChild(tr);
+      });
+    })();
+
+    // One-and-Doners table
+    (function () {
+      var tbody = document.getElementById('oad-tbody');
+      oadData.forEach(function (p) {
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + rankBadge(p.rank) + '</td>' +
+          '<td>' + esc(p.name) + '</td>' +
+          '<td class="col-num">' + p.year + '</td>' +
+          '<td class="col-num"><strong>' + p.pts + '</strong></td>';
+        tbody.appendChild(tr);
+      });
+    })();
+
+    // ── Init tabs ─────────────────────────────────────────────────────────
+    PennNat.initTabs('#record-tabs', '.tab-btn', '.tab-panel');
+
+  })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "golf-site",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:/Users/trace/AppData/Roaming/npm/node_modules/serve/build/main.js", "golf-tournament", "-l", "3000", "--no-clipboard"],
+      "port": 3000
+    }
+  ]
+}
