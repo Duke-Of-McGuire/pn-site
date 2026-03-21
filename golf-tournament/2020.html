@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="2020 Penn Nat Golf Tournament Results">
-  <title>2020 Results — Penn Nat Golf Tournament</title>
+  <meta name="description" content="2020 Penn Nat Championship Results">
+  <title>2020 Results — Penn Nat Championship</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,14 +27,25 @@
 
         <!-- Round Tabs -->
         <div class="round-tabs">
-          <button class="round-tab-btn active" data-round="round-1">Fri R1: Better Ball</button>
+          <button class="round-tab-btn active" data-round="round-final">Final Leaderboard</button>
+          <button class="round-tab-btn" data-round="round-1">Fri R1: Better Ball</button>
           <button class="round-tab-btn" data-round="round-2">Fri R2: Scramble</button>
           <button class="round-tab-btn" data-round="round-3">Sat R1: Better Ball</button>
           <button class="round-tab-btn" data-round="round-4">Sat R2: Scramble</button>
         </div>
 
+        <!-- ═══ Final Leaderboard ═══ -->
+        <div class="round-panel active" id="round-final">
+          <div style="text-align:center;margin-bottom:2rem">
+            <img src="yeti-no-background.png" alt="YETI Trophy" class="yeti-trophy">
+            <h2 class="section-title">2020 Champion: Seth Kaas</h2>
+            <div class="gold-rule" style="margin:1rem auto"></div>
+            <p style="color:var(--gray);font-size:0.9rem;font-style:italic">Individual final leaderboard not recorded for this year.</p>
+          </div>
+        </div>
+
         <!-- ═══ Round 1: Better Ball ═══ -->
-        <div class="round-panel active" id="round-1">
+        <div class="round-panel" id="round-1">
           <div class="round-info">
             <span class="round-info-item"><strong>Round 1</strong></span>
             <span class="round-info-divider">|</span>

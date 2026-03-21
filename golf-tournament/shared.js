@@ -1,5 +1,5 @@
 /**
- * shared.js — Navigation, table sorting, and utilities for Penn Nat Golf Tournament site.
+ * shared.js — Navigation, table sorting, and utilities for Penn Nat Championship site.
  */
 (function () {
   'use strict';
@@ -58,7 +58,7 @@
     '<footer id="site-footer">' +
       '<div class="container">' +
         '<p>&copy; ' + new Date().getFullYear() +
-        ' Penn Nat Golf Tournament &mdash; Fayetteville, PA</p>' +
+        ' Penn Nat Championship &mdash; Fayetteville, PA</p>' +
       '</div>' +
     '</footer>';
 
@@ -121,6 +121,91 @@
 
   // ── Table Sorting ──────────────────────────────────────────────────────────
   window.PennNat = window.PennNat || {};
+
+  // ── 5-Year Veteran Badge ──────────────────────────────────────────────────
+  window.PennNat.fiveYearPlayers = [
+    'Tommy Farrell', 'Bret Custer', 'Seth Kaas', 'Gavin Vetrano',
+    'Eric Upchurch', 'Petey Lytle', 'Mike Furman', 'Mark Graner', 'Tim Boykin'
+  ];
+
+  window.PennNat.badge5yr = '<span class="badge-5yr" title="5+ Year Veteran">5</span>';
+
+  // ── Champion Badge (YETI mug) ────────────────────────────────────────────
+  window.PennNat.champions = [
+    'Kevin Flanagan',   // 2019
+    'Seth Kaas',        // 2020
+    // 2021 TBD
+    'Tommy Farrell',    // 2022
+    'Josh Moss',        // 2023
+    'Tom Farrell Sr'    // 2024
+  ];
+
+  window.PennNat.badgeChamp = '<span class="badge-champ" title="Past Champion"><img src="yeti-no-background.png" alt="Champion"></span>';
+
+  /**
+   * Returns name + all applicable badge HTML (5yr + champion).
+   */
+  window.PennNat.badgedName = function (name) {
+    var html = PennNat.escapeHTML(name);
+    if (PennNat.fiveYearPlayers.indexOf(name) !== -1) {
+      html += ' ' + PennNat.badge5yr;
+    }
+    if (PennNat.champions.indexOf(name) !== -1) {
+      html += ' ' + PennNat.badgeChamp;
+    }
+    return html;
+  };
+
+  /**
+   * Inject all badges into a raw HTML string wherever a player name appears.
+   */
+  window.PennNat.injectBadges = function (html) {
+    var badge5 = PennNat.badge5yr;
+    var badgeC = PennNat.badgeChamp;
+    // Process champions first (some may also be 5yr players)
+    PennNat.champions.forEach(function (name) {
+      if (html.indexOf(name) !== -1) {
+        var full = name;
+        if (PennNat.fiveYearPlayers.indexOf(name) !== -1) {
+          full = name + ' ' + badge5 + ' ' + badgeC;
+        } else {
+          full = name + ' ' + badgeC;
+        }
+        html = html.split(name).join(full);
+      }
+    });
+    // Process remaining 5yr players who aren't champions
+    PennNat.fiveYearPlayers.forEach(function (name) {
+      if (PennNat.champions.indexOf(name) !== -1) return; // already handled
+      if (html.indexOf(name) !== -1) {
+        html = html.split(name).join(name + ' ' + badge5);
+      }
+    });
+    return html;
+  };
+
+  // ── Auto-badge for year pages (hardcoded HTML tables) ─────────────────────
+  document.addEventListener('DOMContentLoaded', function () {
+    // Only run on year pages (handles both /2025.html and /2025 paths)
+    if (!/^\d{4}(\.html)?$/.test(page)) return;
+
+    function injectAllBadges(el) {
+      var html = el.innerHTML;
+      var result = PennNat.injectBadges(html);
+      if (result !== html) el.innerHTML = result;
+    }
+
+    // Badge player names in table cells
+    var cells = document.querySelectorAll('.data-table td');
+    cells.forEach(function (td) {
+      if (td.querySelector('.rank-badge') || td.classList.contains('col-num')) return;
+      injectAllBadges(td);
+    });
+
+    // Badge player names in award cards
+    var winners = document.querySelectorAll('.award-card-winner');
+    winners.forEach(function (el) { injectAllBadges(el); });
+  });
 
   /**
    * Make a table sortable. Call PennNat.makeSortable(tableElement).

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="2019 Penn Nat Golf Tournament — The Inaugural Year">
-  <title>2019 Results — Penn Nat Golf Tournament</title>
+  <meta name="description" content="2019 Penn Nat Championship — The Inaugural Year">
+  <title>2019 Results — Penn Nat Championship</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,68 +22,27 @@
       </div>
     </div>
 
-    <!-- ═══ Schedule ═══ -->
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Tournament Schedule</h2>
-        <div class="gold-rule"></div>
 
-        <div class="data-table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Day</th>
-                <th>Round</th>
-                <th>Course</th>
-                <th>Format</th>
-                <th>Tee Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Friday</td>
-                <td>Round 1</td>
-                <td><span class="course-badge course-founders">Founders</span> Dark Green Tees</td>
-                <td>Better Ball (Net Stroke Play)</td>
-                <td>10:35 AM</td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>Round 2</td>
-                <td><span class="course-badge course-forge">Iron Forge</span> White Tees</td>
-                <td>2 Man Scramble</td>
-                <td>4:00 PM</td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>Round 1</td>
-                <td><span class="course-badge course-forge">Iron Forge</span> White Tees</td>
-                <td>Better Ball (Net Stroke Play)</td>
-                <td>8:00 AM</td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>Round 2</td>
-                <td><span class="course-badge course-founders">Founders</span> Dark Green Tees</td>
-                <td>2 Man Scramble</td>
-                <td>1:25 PM</td>
-              </tr>
-              <tr>
-                <td>Sunday</td>
-                <td>Final Round</td>
-                <td><span class="course-badge course-forge">Iron Forge</span> Blue Tees</td>
-                <td>Modified Net Stableford</td>
-                <td>8:10 AM</td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- Round Tabs -->
+        <div class="round-tabs">
+          <button class="round-tab-btn active" data-round="round-final">Final Leaderboard</button>
+          <button class="round-tab-btn" data-round="round-participants">Participants</button>
         </div>
-      </div>
-    </section>
 
-    <!-- ═══ Participants ═══ -->
-    <section class="section">
-      <div class="container">
+        <!-- ═══ Final Leaderboard ═══ -->
+        <div class="round-panel active" id="round-final">
+          <div style="text-align:center;margin-bottom:2rem">
+            <img src="yeti-no-background.png" alt="YETI Trophy" class="yeti-trophy">
+            <h2 class="section-title">2019 Champion: Kevin Flanagan</h2>
+            <div class="gold-rule" style="margin:1rem auto"></div>
+            <p style="color:var(--gray);font-size:0.9rem;font-style:italic">Detailed scores not recorded for the inaugural year.</p>
+          </div>
+        </div>
+
+        <!-- ═══ Participants ═══ -->
+        <div class="round-panel" id="round-participants">
         <h2 class="section-title">Participants by Round</h2>
         <div class="gold-rule"></div>
 
@@ -212,10 +171,18 @@
           </table>
         </div>
 
+        </div>
+
       </div>
     </section>
 
   </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    PennNat.initRoundTabs();
+  </script>
 
 </body>
 </html>

@@ -776,9 +776,27 @@ main { min-height: 100vh; }
   justify-content: center;
   text-align: center;
   padding: 7rem 2rem 3rem;
-  background: url('pano.webp') center center / cover no-repeat;
   position: relative;
   overflow: hidden;
+  background: var(--dark-bg);
+}
+
+/* Panning background image */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: -5% 0;
+  width: 160%;
+  height: 110%;
+  background: url('pano.webp') left center / cover no-repeat;
+  animation: heroPan 30s ease-in-out infinite alternate;
+  will-change: transform;
+  z-index: 0;
+}
+
+@keyframes heroPan {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-37.5%); }
 }
 
 .hero::before {
@@ -897,9 +915,16 @@ main { min-height: 100vh; }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   text-align: center;
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 0.75rem;
+  display: block;
 }
 
 .stat-number {
@@ -911,11 +936,11 @@ main { min-height: 100vh; }
 }
 
 .stat-label {
-  color: var(--gray);
-  font-size: 0.8rem;
-  font-weight: 500;
+  color: var(--gold-dim);
+  font-size: 0.85rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   margin-top: 0.4rem;
 }
 
@@ -1120,6 +1145,70 @@ main { min-height: 100vh; }
   color: var(--gold);
 }
 
+/* ── 5-Year Veteran Badge ────────────────────────────────────────────────── */
+.badge-5yr {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-warm);
+  color: var(--black);
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-left: 0.25rem;
+  vertical-align: middle;
+  line-height: 1;
+  flex-shrink: 0;
+  position: relative;
+  top: -1px;
+}
+
+/* Smaller badge in tight table contexts */
+.data-table .badge-5yr,
+.record-list .badge-5yr {
+  width: 16px;
+  height: 16px;
+  font-size: 0.6rem;
+}
+
+/* ── Champion Badge (YETI mug) ───────────────────────────────────────────── */
+.badge-champ {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 0.25rem;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  flex-shrink: 0;
+}
+
+.badge-champ img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Smaller in tight table contexts */
+.data-table .badge-champ,
+.record-list .badge-champ {
+  width: 16px;
+  height: 16px;
+}
+
+/* YETI trophy image replacing emoji */
+.yeti-trophy {
+  width: 64px;
+  height: auto;
+  margin: 0 auto 0.5rem;
+  display: block;
+  border-radius: var(--radius);
+}
+
 /* ── Empty State ──────────────────────────────────────────────────────────── */
 .empty-state {
   text-align: center;
@@ -1159,7 +1248,7 @@ main { min-height: 100vh; }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
   .player-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
   .awards-grid { grid-template-columns: 1fr; }
 }
@@ -1249,7 +1338,7 @@ main { min-height: 100vh; }
 }
 
 @media (max-width: 600px) {
-  .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .stats-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .feature-grid { grid-template-columns: 1fr; }
   .player-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 2.25rem; }
