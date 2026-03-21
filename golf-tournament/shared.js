@@ -1,5 +1,5 @@
 /**
- * shared.js — Navigation, table sorting, and utilities for Penn National Golf Tournament site.
+ * shared.js — Navigation, table sorting, and utilities for Penn Nat Golf Tournament site.
  */
 (function () {
   'use strict';
@@ -20,10 +20,10 @@
   // ── SVG flag icon ───────────────────────────────────────────────────────────
   var flagSVG =
     '<svg class="nav-brand-flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">' +
-      '<line x1="9" y1="4" x2="9" y2="29" stroke="#c9a96e" stroke-width="2" stroke-linecap="round"/>' +
-      '<polygon points="9,4 27,10 9,16" fill="#c9a96e"/>' +
-      '<ellipse cx="12" cy="29" rx="6" ry="2" fill="#1a3c2a"/>' +
-      '<circle cx="18" cy="27.5" r="2" fill="#e8e4dc"/>' +
+      '<line x1="9" y1="4" x2="9" y2="29" stroke="#e8dcc8" stroke-width="2" stroke-linecap="round"/>' +
+      '<polygon points="9,4 27,10 9,16" fill="#e8dcc8"/>' +
+      '<ellipse cx="12" cy="29" rx="6" ry="2" fill="#060606"/>' +
+      '<circle cx="18" cy="27.5" r="2" fill="#e8e0d4"/>' +
     '</svg>';
 
   // ── Build nav HTML ──────────────────────────────────────────────────────────
@@ -36,7 +36,7 @@
   var navHTML =
     '<header id="site-header">' +
       '<div class="nav-inner">' +
-        '<a href="index.html" class="nav-brand">' + flagSVG + ' Penn National</a>' +
+        '<a href="index.html" class="nav-brand">' + flagSVG + ' Penn Nat</a>' +
         '<button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>' +
         '<nav class="nav-links" id="nav-links">' +
           '<a href="index.html"' + isActive('index.html') + '>Home</a>' +
@@ -47,6 +47,7 @@
             '</button>' +
             '<div class="nav-dropdown-menu">' + yearLinksHTML + '</div>' +
           '</div>' +
+          '<a href="gallery.html"' + isActive('gallery.html') + '>Gallery</a>' +
           '<a href="players.html"' + isActive('players.html') + '>Player Profiles</a>' +
         '</nav>' +
       '</div>' +
@@ -57,7 +58,7 @@
     '<footer id="site-footer">' +
       '<div class="container">' +
         '<p>&copy; ' + new Date().getFullYear() +
-        ' Penn National Golf Tournament &mdash; Fayetteville, PA</p>' +
+        ' Penn Nat Golf Tournament &mdash; Fayetteville, PA</p>' +
       '</div>' +
     '</footer>';
 

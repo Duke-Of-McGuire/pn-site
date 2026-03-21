@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Photos from the Penn Nat Golf Tournament at Penn National Golf Club.">
+  <title>Gallery — Penn Nat Golf Tournament</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+  <script src="shared.js"></script>
+
+  <main>
+    <div class="page-header">
+      <span class="section-label">Photos</span>
+      <h1>Gallery</h1>
+      <p class="page-subtitle">Penn National Golf Club &mdash; Fayetteville, PA</p>
+    </div>
+
+    <!-- ═══ Year Filter ═══ -->
+    <section class="section">
+      <div class="container">
+
+        <div class="gallery-filters">
+          <button class="gallery-filter-btn active" data-filter="all">All Years</button>
+          <button class="gallery-filter-btn" data-filter="2025">2025</button>
+          <button class="gallery-filter-btn" data-filter="2024">2024</button>
+          <button class="gallery-filter-btn" data-filter="2023">2023</button>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+
+          <!-- 2025 Photos -->
+          <div class="gallery-item" data-year="2025">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2025</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2025">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2025</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2025">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2025</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2025">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2025</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2025">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2025</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2025">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2025</span>
+            </div>
+          </div>
+
+          <!-- 2024 Photos -->
+          <div class="gallery-item" data-year="2024">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2024</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2024">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2024</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2024">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2024</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2024">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2024</span>
+            </div>
+          </div>
+
+          <!-- 2023 Photos -->
+          <div class="gallery-item" data-year="2023">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2023</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2023">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2023</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2023">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2023</span>
+            </div>
+          </div>
+          <div class="gallery-item" data-year="2023">
+            <div class="gallery-placeholder">
+              <span class="gallery-placeholder-icon">&#128247;</span>
+              <span class="gallery-placeholder-label">2023</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+  (function () {
+    // Year filtering
+    var filterBtns = document.querySelectorAll('.gallery-filter-btn');
+    var items = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var filter = btn.getAttribute('data-filter');
+
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        items.forEach(function (item) {
+          if (filter === 'all' || item.getAttribute('data-year') === filter) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Lightbox
+    var lightbox = document.getElementById('gallery-lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxClose = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.gallery-item img').forEach(function (img) {
+      img.addEventListener('click', function () {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', closeLightbox);
+    }
+    if (lightbox) {
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    function closeLightbox() {
+      if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+  })();
+  </script>
+
+  <!-- Lightbox overlay (hidden by default) -->
+  <div class="gallery-lightbox" id="gallery-lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+
+</body>
+</html>
