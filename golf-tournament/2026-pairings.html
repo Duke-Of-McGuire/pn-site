@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="2026 Penn Nat Championship Pairings">
+  <meta name="description" content="2026 Penn Nat Championship Pairings — team matchups for all five rounds at Penn National Golf Club.">
   <title>2026 Pairings — Penn Nat Championship</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,23 +13,302 @@
   <script src="shared.js"></script>
 
   <main>
+
     <div class="page-header">
-      <span class="section-label">2026 Tournament</span>
-      <h1>2026 Pairings</h1>
-      <p class="page-subtitle">Penn National Golf Club &mdash; Fayetteville, PA</p>
+      <div class="container">
+        <span class="section-label">2026 Tournament</span>
+        <h1>2026 Pairings</h1>
+        <p class="page-subtitle">20 Players &mdash; Iron Forge &amp; Founders &mdash; Fayetteville, PA</p>
+      </div>
     </div>
 
     <section class="section">
       <div class="container">
-        <div class="empty-state">
-          <p style="font-size:1.5rem;color:var(--gold);font-family:var(--font-display);margin-bottom:0.5rem">Coming Soon</p>
-          <p>Pairings will be posted once the 2026 field is set.</p>
+
+        <!-- Round Tabs -->
+        <div class="round-tabs">
+          <button class="round-tab-btn active" data-round="round-1">R1: Better Ball</button>
+          <button class="round-tab-btn" data-round="round-2">R2: Alt Shot</button>
+          <button class="round-tab-btn" data-round="round-3">R3: Better Ball</button>
+          <button class="round-tab-btn" data-round="round-4">R4: Scramble</button>
+          <button class="round-tab-btn" data-round="round-sunday">Sunday</button>
         </div>
+
+        <!-- ═══ Round 1: Better Ball ═══ -->
+        <div class="round-panel active" id="round-1">
+          <div class="round-info">
+            <span class="round-info-item"><strong>Round 1</strong></span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item"><span class="course-badge course-founders">Founders</span> Dark Green Tees</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Better Ball (Net Stroke Play)</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Friday 10:05 AM</span>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table pairings-table">
+              <thead>
+                <tr>
+                  <th style="width:50px">Team</th>
+                  <th>Players</th>
+                  <th class="col-num">Strokes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="team-start"><td class="team-num" rowspan="2">1</td><td>David Scallion</td><td class="col-num">1</td></tr>
+                <tr><td>Eric Upchurch</td><td class="col-num">19</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">2</td><td>Mike Furman</td><td class="col-num">3</td></tr>
+                <tr><td>Tommy Farrell</td><td class="col-num">9</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">3</td><td>Seth Kaas</td><td class="col-num">12</td></tr>
+                <tr><td>Tim Boykin</td><td class="col-num">18</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">4</td><td>Derek Chiarella</td><td class="col-num">11</td></tr>
+                <tr><td>Jarrett Young</td><td class="col-num">16</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">5</td><td>Josh Moss</td><td class="col-num">-3</td></tr>
+                <tr><td>Mark Graner</td><td class="col-num">20</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">6</td><td>Brandon Holland</td><td class="col-num">11</td></tr>
+                <tr><td>Trace Ferre</td><td class="col-num">11</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">7</td><td>Petey Lytle</td><td class="col-num">9</td></tr>
+                <tr><td>Eric DiFulvio</td><td class="col-num">15</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">8</td><td>Bret Custer</td><td class="col-num">9</td></tr>
+                <tr><td>Brandon Orbe</td><td class="col-num">5</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">9</td><td>Drew Hutcheon</td><td class="col-num">7</td></tr>
+                <tr><td>Steve Smith</td><td class="col-num">17</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">10</td><td>Gavin Vetrano</td><td class="col-num">6</td></tr>
+                <tr><td>Jon Thomas</td><td class="col-num">14</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Round 2: Modified Alternate Shot ═══ -->
+        <div class="round-panel" id="round-2">
+          <div class="round-info">
+            <span class="round-info-item"><strong>Round 2</strong></span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item"><span class="course-badge course-forge">Iron Forge</span> Blue Tees</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Modified Alternate Shot</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Friday 3:30 PM</span>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table pairings-table">
+              <thead>
+                <tr>
+                  <th style="width:50px">Team</th>
+                  <th>Players</th>
+                  <th class="col-num">Course HCP</th>
+                  <th class="col-num">Team HCP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="team-start"><td class="team-num" rowspan="2">1</td><td>Gavin Vetrano</td><td class="col-num">6</td><td class="team-hcp" rowspan="2">6.0</td></tr>
+                <tr><td>Drew Hutcheon</td><td class="col-num">6</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">2</td><td>Eric Upchurch</td><td class="col-num">18</td><td class="team-hcp" rowspan="2">13.8</td></tr>
+                <tr><td>Trace Ferre</td><td class="col-num">11</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">3</td><td>David Scallion</td><td class="col-num">0</td><td class="team-hcp" rowspan="2">7.6</td></tr>
+                <tr><td>Mark Graner</td><td class="col-num">19</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">4</td><td>Seth Kaas</td><td class="col-num">11</td><td class="team-hcp" rowspan="2">2.6</td></tr>
+                <tr><td>Josh Moss</td><td class="col-num">-3</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">5</td><td>Tommy Farrell</td><td class="col-num">9</td><td class="team-hcp" rowspan="2">9.4</td></tr>
+                <tr><td>Brandon Holland</td><td class="col-num">10</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">6</td><td>Derek Chiarella</td><td class="col-num">11</td><td class="team-hcp" rowspan="2">12.6</td></tr>
+                <tr><td>Eric DiFulvio</td><td class="col-num">15</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">7</td><td>Mike Furman</td><td class="col-num">3</td><td class="team-hcp" rowspan="2">3.8</td></tr>
+                <tr><td>Brandon Orbe</td><td class="col-num">5</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">8</td><td>Jon Thomas</td><td class="col-num">14</td><td class="team-hcp" rowspan="2">11.0</td></tr>
+                <tr><td>Petey Lytle</td><td class="col-num">9</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">9</td><td>Bret Custer</td><td class="col-num">8</td><td class="team-hcp" rowspan="2">11.6</td></tr>
+                <tr><td>Tim Boykin</td><td class="col-num">17</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">10</td><td>Jarrett Young</td><td class="col-num">15</td><td class="team-hcp" rowspan="2">15.4</td></tr>
+                <tr><td>Steve Smith</td><td class="col-num">16</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Round 3: Better Ball ═══ -->
+        <div class="round-panel" id="round-3">
+          <div class="round-info">
+            <span class="round-info-item"><strong>Round 3</strong></span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item"><span class="course-badge course-forge">Iron Forge</span> White Tees</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Better Ball (Net Stroke Play)</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Saturday 8:40 AM</span>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table pairings-table">
+              <thead>
+                <tr>
+                  <th style="width:50px">Team</th>
+                  <th>Players</th>
+                  <th class="col-num">Strokes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="team-start"><td class="team-num" rowspan="2">1</td><td>David Scallion</td><td class="col-num">-1</td></tr>
+                <tr><td>Josh Moss</td><td class="col-num">-4</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">2</td><td>Gavin Vetrano</td><td class="col-num">4</td></tr>
+                <tr><td>Mark Graner</td><td class="col-num">18</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">3</td><td>Seth Kaas</td><td class="col-num">10</td></tr>
+                <tr><td>Brandon Holland</td><td class="col-num">9</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">4</td><td>Brandon Orbe</td><td class="col-num">3</td></tr>
+                <tr><td>Petey Lytle</td><td class="col-num">7</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">5</td><td>Eric Upchurch</td><td class="col-num">17</td></tr>
+                <tr><td>Jarrett Young</td><td class="col-num">14</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">6</td><td>Derek Chiarella</td><td class="col-num">9</td></tr>
+                <tr><td>Steve Smith</td><td class="col-num">15</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">7</td><td>Tommy Farrell</td><td class="col-num">7</td></tr>
+                <tr><td>Drew Hutcheon</td><td class="col-num">5</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">8</td><td>Mike Furman</td><td class="col-num">1</td></tr>
+                <tr><td>Trace Ferre</td><td class="col-num">9</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">9</td><td>Bret Custer</td><td class="col-num">7</td></tr>
+                <tr><td>Jon Thomas</td><td class="col-num">12</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">10</td><td>Eric DiFulvio</td><td class="col-num">13</td></tr>
+                <tr><td>Tim Boykin</td><td class="col-num">16</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Round 4: 2-Man Scramble ═══ -->
+        <div class="round-panel" id="round-4">
+          <div class="round-info">
+            <span class="round-info-item"><strong>Round 4</strong></span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item"><span class="course-badge course-founders">Founders</span> Dark Green Tees</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">2-Man Scramble</span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Saturday 2:35 PM</span>
+          </div>
+
+          <div class="data-table-wrap">
+            <table class="data-table pairings-table">
+              <thead>
+                <tr>
+                  <th style="width:50px">Team</th>
+                  <th>Players</th>
+                  <th class="col-num">Course HCP</th>
+                  <th class="col-num">Team HCP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="team-start"><td class="team-num" rowspan="2">1</td><td>David Scallion</td><td class="col-num">1</td><td class="team-hcp" rowspan="2">1.70</td></tr>
+                <tr><td>Bret Custer</td><td class="col-num">9</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">2</td><td>Drew Hutcheon</td><td class="col-num">7</td><td class="team-hcp" rowspan="2">5.30</td></tr>
+                <tr><td>Eric Upchurch</td><td class="col-num">19</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">3</td><td>Tommy Farrell</td><td class="col-num">9</td><td class="team-hcp" rowspan="2">5.60</td></tr>
+                <tr><td>Jarrett Young</td><td class="col-num">16</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">4</td><td>Mike Furman</td><td class="col-num">3</td><td class="team-hcp" rowspan="2">2.90</td></tr>
+                <tr><td>Seth Kaas</td><td class="col-num">12</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">5</td><td>Gavin Vetrano</td><td class="col-num">6</td><td class="team-hcp" rowspan="2">4.70</td></tr>
+                <tr><td>Steve Smith</td><td class="col-num">17</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">6</td><td>Brandon Orbe</td><td class="col-num">5</td><td class="team-hcp" rowspan="2">3.40</td></tr>
+                <tr><td>Derek Chiarella</td><td class="col-num">11</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">7</td><td>Josh Moss</td><td class="col-num">-3</td><td class="team-hcp" rowspan="2">1.20</td></tr>
+                <tr><td>Eric DiFulvio</td><td class="col-num">15</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">8</td><td>Petey Lytle</td><td class="col-num">9</td><td class="team-hcp" rowspan="2">6.20</td></tr>
+                <tr><td>Mark Graner</td><td class="col-num">20</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">9</td><td>Trace Ferre</td><td class="col-num">11</td><td class="team-hcp" rowspan="2">6.00</td></tr>
+                <tr><td>Jon Thomas</td><td class="col-num">14</td></tr>
+
+                <tr class="team-start"><td class="team-num" rowspan="2">10</td><td>Brandon Holland</td><td class="col-num">11</td><td class="team-hcp" rowspan="2">6.60</td></tr>
+                <tr><td>Tim Boykin</td><td class="col-num">18</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ Sunday ═══ -->
+        <div class="round-panel" id="round-sunday">
+          <div class="round-info">
+            <span class="round-info-item"><strong>Sunday Individual</strong></span>
+            <span class="round-info-divider">|</span>
+            <span class="round-info-item">Individual Stroke Play</span>
+          </div>
+
+          <div class="empty-state">
+            <p style="font-size:1.5rem;color:var(--gold);font-family:var(--font-display);margin-bottom:0.5rem">Set After Saturday</p>
+            <p>The Sunday final-round pairings are determined once Rounds 1&ndash;4 are complete. Check back once Saturday's scores are in.</p>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
 
   <div id="footer-placeholder"></div>
+
+  <script>PennNat.initRoundTabs();</script>
+
+  <!-- Player badges (from 2026 pairings sheet): 5 = 5-year veteran, YETI cup = past champion -->
+  <script>
+  (function () {
+    var badge5  = '<span class="badge-5yr" title="5+ Year Veteran">5</span>';
+    var badgeCup = '<span class="badge-champ" title="Past Champion"><img src="yeti-no-background.png" alt="Champion"></span>';
+
+    var fiveYear = [
+      'Eric Upchurch', 'Mike Furman', 'Tommy Farrell', 'Seth Kaas', 'Tim Boykin',
+      'Josh Moss', 'Mark Graner', 'Petey Lytle', 'Bret Custer', 'Steve Smith',
+      'Gavin Vetrano', 'Jon Thomas', 'Derek Chiarella'
+    ];
+    var champions = [
+      'Tommy Farrell', 'Seth Kaas', 'Josh Moss', 'Bret Custer'
+    ];
+
+    document.querySelectorAll('.pairings-table tbody td').forEach(function (td) {
+      if (td.classList.contains('col-num') ||
+          td.classList.contains('team-num') ||
+          td.classList.contains('team-hcp')) return;
+      var name = td.textContent.trim();
+      var extra = '';
+      if (fiveYear.indexOf(name) !== -1) extra += ' ' + badge5;
+      if (champions.indexOf(name) !== -1) extra += ' ' + badgeCup;
+      if (extra) td.innerHTML = name + extra;
+    });
+  })();
+  </script>
 
 </body>
 </html>

@@ -1021,6 +1021,27 @@ main { min-height: 100vh; }
   border-left: 2px solid var(--gold-dim);
 }
 
+/* ── Pairings (2026) ──────────────────────────────────────────────────────── */
+.pairings-table .team-num {
+  text-align: center;
+  font-weight: 700;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  vertical-align: middle;
+}
+
+.pairings-table .team-hcp {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+/* Group each 2-man team visually: no zebra striping, thin rule between teams */
+.pairings-table tbody tr:nth-child(even) { background: transparent; }
+.pairings-table tbody tr.team-start td { border-top: 1px solid var(--dark-4); }
+.pairings-table tbody tr:first-child.team-start td { border-top: none; }
+
 /* ── Gallery ──────────────────────────────────────────────────────────────── */
 .gallery-filters {
   display: flex;

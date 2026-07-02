@@ -137,7 +137,8 @@
     // 2021 TBD
     'Tommy Farrell',    // 2022
     'Josh Moss',        // 2023
-    'Tom Farrell Sr'    // 2024
+    'Tom Farrell Sr',   // 2024
+    'Bret Custer'       // 2025
   ];
 
   window.PennNat.badgeChamp = '<span class="badge-champ" title="Past Champion"><img src="yeti-no-background.png" alt="Champion"></span>';
