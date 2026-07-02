@@ -134,7 +134,7 @@
   window.PennNat.champions = [
     'Kevin Flanagan',   // 2019
     'Seth Kaas',        // 2020
-    // 2021 TBD
+    'Mike Shipway',     // 2021
     'Tommy Farrell',    // 2022
     'Josh Moss',        // 2023
     'Tom Farrell Sr',   // 2024
