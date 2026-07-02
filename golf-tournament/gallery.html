@@ -3,9 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Photos from the Penn Nat Championship at Penn National Golf Club.">
+  <meta name="description" content="Photo gallery from Penn Nat Championship at Penn National Golf Club.">
   <title>Gallery — Penn Nat Championship</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(232, 220, 200, 0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.75rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -19,181 +62,30 @@
       <p class="page-subtitle">Penn National Golf Club &mdash; Fayetteville, PA</p>
     </div>
 
-    <!-- ═══ Year Filter ═══ -->
     <section class="section">
       <div class="container">
-
-        <div class="gallery-filters">
-          <button class="gallery-filter-btn active" data-filter="all">All Years</button>
-          <button class="gallery-filter-btn" data-filter="2025">2025</button>
-          <button class="gallery-filter-btn" data-filter="2024">2024</button>
-          <button class="gallery-filter-btn" data-filter="2023">2023</button>
-        </div>
-
         <div class="gallery-grid" id="gallery-grid">
-
-          <!-- 2025 Photos -->
-          <div class="gallery-item" data-year="2025">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2025</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2025">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2025</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2025">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2025</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2025">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2025</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2025">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2025</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2025">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2025</span>
-            </div>
-          </div>
-
-          <!-- 2024 Photos -->
-          <div class="gallery-item" data-year="2024">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2024</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2024">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2024</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2024">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2024</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2024">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2024</span>
-            </div>
-          </div>
-
-          <!-- 2023 Photos -->
-          <div class="gallery-item" data-year="2023">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2023</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2023">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2023</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2023">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2023</span>
-            </div>
-          </div>
-          <div class="gallery-item" data-year="2023">
-            <div class="gallery-placeholder">
-              <span class="gallery-placeholder-icon">&#128247;</span>
-              <span class="gallery-placeholder-label">2023</span>
-            </div>
-          </div>
-
+          <div class="gallery-item"><img src="pics/17b84c1c578a90ca574caa54c44c28b0.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/28f33e6b9e41295593052d1d675a7b81.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/3eb0367935a3e6c36303127991b489e6.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/75e2e760a1b5cb1f08d56b39acaa10b0.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/7a50d45127b93a44b8e189e1f97e7ee3.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/8d06c34ec7c962d17867b13bb8602a73.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/964f0250ac6348cd6fbf9cbb78460431.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/9f5ca9c2364ba27a989a6e5f8f08201d.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/a1cbb3c0914601aaa290f30281efc341.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/a722cfc56c957a05bc551faaff4334d0.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/aaeca665b231ac238c1aaa91032e5291.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/b96b4d9833244a43e8bc1d420bb275b1.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/babdc04c100ef3b87bc22e3ef6d63260.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/d65e1f260bd630a5408dfd04fce06df1.jpeg" alt="Penn Nat photo" loading="lazy"></div>
+          <div class="gallery-item"><img src="pics/faf01fc7e2c33b867eb912a0c40972ad.jpeg" alt="Penn Nat photo" loading="lazy"></div>
         </div>
-
       </div>
     </section>
   </main>
 
   <div id="footer-placeholder"></div>
-
-  <script>
-  (function () {
-    // Year filtering
-    var filterBtns = document.querySelectorAll('.gallery-filter-btn');
-    var items = document.querySelectorAll('.gallery-item');
-
-    filterBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var filter = btn.getAttribute('data-filter');
-
-        filterBtns.forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-
-        items.forEach(function (item) {
-          if (filter === 'all' || item.getAttribute('data-year') === filter) {
-            item.style.display = '';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // Lightbox
-    var lightbox = document.getElementById('gallery-lightbox');
-    var lightboxImg = document.getElementById('lightbox-img');
-    var lightboxClose = document.getElementById('lightbox-close');
-
-    document.querySelectorAll('.gallery-item img').forEach(function (img) {
-      img.addEventListener('click', function () {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    if (lightboxClose) {
-      lightboxClose.addEventListener('click', closeLightbox);
-    }
-    if (lightbox) {
-      lightbox.addEventListener('click', function (e) {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeLightbox();
-    });
-
-    function closeLightbox() {
-      if (lightbox) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
-  })();
-  </script>
-
-  <!-- Lightbox overlay (hidden by default) -->
-  <div class="gallery-lightbox" id="gallery-lightbox">
-    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-    <img id="lightbox-img" src="" alt="" />
-  </div>
 
 </body>
 </html>
